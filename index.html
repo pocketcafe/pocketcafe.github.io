@@ -7,10 +7,10 @@
   <meta name="description" content="PocketCafe is your WhatsApp-first cloud cyber cafe for government exam forms, Aadhaar/PAN updates, Passport, Driving License, MSME, EPFO, and travel bookings with transparent ₹29–₹149 service fees." />
   <meta name="theme-color" content="#0B1120" />
 
-  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & Noto Sans Devanagari -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -44,7 +44,7 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
@@ -57,9 +57,9 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
       letter-spacing: -0.02em;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     a {
@@ -97,7 +97,7 @@
       align-items: center;
       justify-content: space-between;
       height: 72px;
-      gap: 16px;
+      gap: 14px;
     }
 
     .brand {
@@ -108,6 +108,7 @@
       font-weight: 800;
       font-size: 1.3rem;
       letter-spacing: -0.03em;
+      flex-shrink: 0;
     }
 
     .brand-icon {
@@ -130,7 +131,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 22px;
       font-size: 0.92rem;
       font-weight: 500;
       color: var(--text-secondary);
@@ -143,7 +144,39 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+    }
+
+    /* Clean Language Toggle Pill */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border-subtle);
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      transition: all 0.18s ease;
+      line-height: 1.2;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent-orange), #EA580C);
+      color: #fff;
+      box-shadow: 0 4px 12px -2px rgba(249, 115, 22, 0.55);
     }
 
     .live-pill {
@@ -254,7 +287,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 4.4vw, 3.45rem);
+      font-size: clamp(2.1rem, 4.2vw, 3.35rem);
       font-weight: 800;
       margin-bottom: 18px;
     }
@@ -268,7 +301,7 @@
 
     .hero-sub {
       color: var(--text-secondary);
-      font-size: 1.06rem;
+      font-size: 1.05rem;
       max-width: 580px;
       margin-bottom: 28px;
     }
@@ -975,7 +1008,7 @@
     }
 
     .faq-item.open .faq-a {
-      max-height: 260px;
+      max-height: 320px;
       padding-bottom: 18px;
     }
 
@@ -1064,48 +1097,6 @@
       transform: translateY(-3px) scale(1.02);
     }
 
-    /* Responsive */
-    @media (max-width: 980px) {
-      .hero-grid, .custom-box { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps-grid { grid-template-columns: 1fr; }
-      .pricing-split { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 680px) {
-      .nav-links, .live-pill { display: none; }
-      .mobile-menu-btn { display: inline-flex; }
-      .services-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero { padding: 44px 0 36px; }
-      .custom-box { padding: 24px; }
-      .wa-fab span { display: none; }
-      .wa-fab { padding: 15px; }
-    }
-
-    /* Mobile Drawer */
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      padding: 16px 20px 22px;
-      background: rgba(10, 15, 28, 0.98);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .mobile-nav.open {
-      display: flex;
-    }
-
-    .mobile-nav a {
-      padding: 8px 0;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
     /* Dedicated Subpage Views (Security & FAQ) */
     .nav-links a.active-link,
     .mobile-nav a.active-link {
@@ -1155,6 +1146,52 @@
     .subpage-view section {
       padding-top: 32px;
     }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .live-pill { display: none; }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .custom-box { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .pricing-split { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links, .nav-wa-btn { display: none; }
+      .mobile-menu-btn { display: inline-flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 44px 0 36px; }
+      .custom-box { padding: 24px; }
+      .wa-fab span { display: none; }
+      .wa-fab { padding: 15px; }
+    }
+
+    /* Mobile Drawer */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 20px 22px;
+      background: rgba(10, 15, 28, 0.98);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      padding: 8px 0;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
@@ -1168,16 +1205,22 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="#services" data-view="home" data-section="services">Services</a>
-        <a href="#pricing" data-view="home" data-section="pricing">Pricing Promise</a>
-        <a href="#how-it-works" data-view="home" data-section="how-it-works">How It Works</a>
-        <a href="#security" data-view="security">Security</a>
-        <a href="#faq" data-view="faq">FAQ</a>
+        <a href="#services" data-view="home" data-section="services" data-i18n="nav_services">Services</a>
+        <a href="#pricing" data-view="home" data-section="pricing" data-i18n="nav_pricing">Pricing Promise</a>
+        <a href="#how-it-works" data-view="home" data-section="how-it-works" data-i18n="nav_how">How It Works</a>
+        <a href="#security" data-view="security" data-i18n="nav_security">Security</a>
+        <a href="#faq" data-view="faq" data-i18n="nav_faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
-        <span class="live-pill"><span class="live-dot"></span> Desk Online</span>
-        <button class="btn btn-whatsapp" onclick="openWhatsApp('Hi PocketCafe! I need help with an online form or digital service.')">
+        <!-- Clean EN | हिंदी Toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="hi" aria-pressed="false">हिंदी</button>
+        </div>
+
+        <span class="live-pill"><span class="live-dot"></span> <span data-i18n="desk_online">Desk Online</span></span>
+        <button class="btn btn-whatsapp nav-wa-btn" onclick="openWhatsApp('Hi PocketCafe! I need help with an online form or digital service.')" data-i18n="nav_wa">
           WhatsApp Desk
         </button>
         <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle Menu">
@@ -1189,11 +1232,11 @@
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="#services" data-view="home" data-section="services" onclick="toggleMobileNav()">Services</a>
-      <a href="#pricing" data-view="home" data-section="pricing" onclick="toggleMobileNav()">Pricing Promise</a>
-      <a href="#how-it-works" data-view="home" data-section="how-it-works" onclick="toggleMobileNav()">How It Works</a>
-      <a href="#security" data-view="security" onclick="toggleMobileNav()">Security</a>
-      <a href="#faq" data-view="faq" onclick="toggleMobileNav()">FAQ</a>
+      <a href="#services" data-view="home" data-section="services" onclick="toggleMobileNav()" data-i18n="nav_services">Services</a>
+      <a href="#pricing" data-view="home" data-section="pricing" onclick="toggleMobileNav()" data-i18n="nav_pricing">Pricing Promise</a>
+      <a href="#how-it-works" data-view="home" data-section="how-it-works" onclick="toggleMobileNav()" data-i18n="nav_how">How It Works</a>
+      <a href="#security" data-view="security" onclick="toggleMobileNav()" data-i18n="nav_security">Security</a>
+      <a href="#faq" data-view="faq" onclick="toggleMobileNav()" data-i18n="nav_faq">FAQ</a>
     </div>
   </header>
 
@@ -1204,35 +1247,35 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">
-          <span>⚡ Cloud Jan Seva Kendra & Digital Concierge</span>
+          <span data-i18n="hero_eyebrow">⚡ Cloud Jan Seva Kendra & Digital Concierge</span>
         </div>
-        <h1>
+        <h1 data-i18n-html="hero_title">
           Every Online Form &amp; Document Done <span class="gradient-text">Without Leaving Home.</span>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n-html="hero_sub">
           Skip crowded cyber cafes and confusing portals. From Government Exam Forms, Aadhaar &amp; PAN updates to Passport, EPFO, MSME, and Tickets — send documents on WhatsApp and get verified PDFs with our <strong>Zero-Error Guarantee</strong>.
         </p>
 
         <div class="hero-ctas">
           <button class="btn btn-whatsapp" onclick="openWhatsApp('Hi PocketCafe! I want to start a new service request.')">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.506 2 2.012 6.494 2.012 12.019c0 1.766.461 3.49 1.337 5.008L2 22l5.107-1.339a9.978 9.978 0 004.924 1.298h.004c5.524 0 10.019-4.494 10.019-10.019C22.054 6.494 17.559 2 12.031 2zm5.829 14.236c-.246.693-1.434 1.326-1.99 1.41-.513.077-1.179.109-1.902-.12-.441-.141-1.007-.329-1.729-.641-3.043-1.314-5.031-4.38-5.183-4.582-.152-.202-1.236-1.646-1.236-3.139 0-1.494.782-2.228 1.06-2.532.277-.304.605-.38.807-.38.202 0 .403.002.58.011.186.009.435-.071.681.521.252.607.858 2.094.933 2.246.076.152.126.329.025.531-.101.202-.151.329-.303.506-.151.177-.318.396-.454.531-.151.151-.309.316-.133.619.177.304.784 1.294 1.683 2.095 1.156 1.031 2.132 1.351 2.435 1.503.303.152.48.126.656-.076.177-.202.757-.884.959-1.187.202-.304.404-.253.681-.152.278.101 1.766.833 2.069.985.303.152.505.227.58.354.076.126.076.733-.17 1.426z"/></svg>
-            Start on WhatsApp
+            <span data-i18n="hero_cta_wa">Start on WhatsApp</span>
           </button>
-          <a href="#services" class="btn btn-outline">Explore All Services</a>
+          <a href="#services" class="btn btn-outline" data-view="home" data-section="services" data-i18n="hero_cta_services">Explore All Services</a>
         </div>
 
         <div class="trust-strip">
           <span class="trust-item">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            Zero-Error Preview Before Submit
+            <span data-i18n="trust_strip_1">Zero-Error Preview Before Submit</span>
           </span>
           <span class="trust-item">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            Flat ₹29–₹149 Service Fee
+            <span data-i18n="trust_strip_2">Flat ₹29–₹149 Service Fee</span>
           </span>
           <span class="trust-item">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            100% Private &amp; Secure
+            <span data-i18n="trust_strip_3">100% Private &amp; Secure</span>
           </span>
         </div>
       </div>
@@ -1241,25 +1284,25 @@
       <div class="hero-card" id="liveDesk">
         <div class="console-header">
           <div class="console-title">
-            <span>🛰️</span> PocketCafe Live Desk
+            <span>🛰️</span> <span data-i18n="desk_title">PocketCafe Live Desk</span>
           </div>
           <span class="console-badge" id="deskStatusBadge">
-            <span class="live-dot"></span> AI Active 24/7
+            <span class="live-dot"></span> <span data-i18n="desk_badge">AI Active 24/7</span>
           </span>
         </div>
 
         <div class="desk-messages" id="deskMessages" aria-live="polite">
-          <div class="bubble bot">
+          <div class="bubble bot" id="deskWelcomeBubble" data-i18n-html="desk_welcome">
             Namaste! I'm the <strong>PocketCafe Live Desk</strong> assistant. Ask me about exam form fees, document checklists, Live Photo verification, PAN/Aadhaar, Passport, or EPFO — in English or Hinglish.
             <small>✓ Instant quotes • Zero hidden charges</small>
           </div>
         </div>
 
         <div class="quick-chips" id="deskChips">
-          <button type="button" class="chip-btn" data-prompt="SSC / RRB exam form fee & documents?">Exam Form Fees</button>
-          <button type="button" class="chip-btn" data-prompt="How does live photo verification work?">Live Photo Help</button>
-          <button type="button" class="chip-btn" data-prompt="Documents needed for PAN or Aadhaar update?">PAN / Aadhaar</button>
-          <button type="button" class="chip-btn" data-prompt="Passport or MSME Udyam registration fee?">Passport / MSME</button>
+          <button type="button" class="chip-btn" data-prompt-en="SSC / RRB exam form fee & documents?" data-prompt-hi="SSC / RRB एग्जाम फॉर्म की फीस और डॉक्यूमेंट्स क्या हैं?" data-i18n="chip_1">Exam Form Fees</button>
+          <button type="button" class="chip-btn" data-prompt-en="How does live photo verification work?" data-prompt-hi="लाइव फोटो वेरिफिकेशन कैसे होता है?" data-i18n="chip_2">Live Photo Help</button>
+          <button type="button" class="chip-btn" data-prompt-en="Documents needed for PAN or Aadhaar update?" data-prompt-hi="PAN या Aadhaar अपडेट के लिए कौन से डॉक्यूमेंट्स चाहिए?" data-i18n="chip_3">PAN / Aadhaar</button>
+          <button type="button" class="chip-btn" data-prompt-en="Passport or MSME Udyam registration fee?" data-prompt-hi="Passport या MSME Udyam रजिस्ट्रेशन की फीस कितनी है?" data-i18n="chip_4">Passport / MSME</button>
         </div>
 
         <form class="desk-form" id="deskForm">
@@ -1268,13 +1311,14 @@
             id="deskInput"
             class="desk-input"
             placeholder="Ask anything (e.g., UPPSC form fee, PF KYC)..."
+            data-i18n-placeholder="desk_placeholder"
             autocomplete="off"
             required
           />
-          <button type="submit" class="desk-send" id="deskSendBtn">Ask</button>
+          <button type="submit" class="desk-send" id="deskSendBtn" data-i18n="desk_send">Ask</button>
         </form>
 
-        <button type="button" class="desk-handoff" id="deskHandoffBtn">
+        <button type="button" class="desk-handoff" id="deskHandoffBtn" data-i18n="desk_handoff">
           Continue This Chat on WhatsApp →
         </button>
       </div>
@@ -1285,9 +1329,9 @@
   <section id="services">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">All-In-One Service Desk</span>
-        <h2>Choose a Service &amp; Book Instantly</h2>
-        <p>Search or filter below. Every card clearly shows our flat concierge fee — government portal fees are always charged strictly at actuals with official receipts.</p>
+        <span class="section-tag" data-i18n="srv_tag">All-In-One Service Desk</span>
+        <h2 data-i18n="srv_title">Choose a Service &amp; Book Instantly</h2>
+        <p data-i18n="srv_sub">Search or filter below. Every card clearly shows our flat concierge fee — government portal fees are always charged strictly at actuals with official receipts.</p>
       </div>
 
       <div class="catalog-controls">
@@ -1295,16 +1339,16 @@
           <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
           </svg>
-          <input type="text" id="serviceSearch" class="search-input" placeholder="Search services (e.g., SSC, PAN, Passport, EPFO, MSME, Domicile)..." />
+          <input type="text" id="serviceSearch" class="search-input" placeholder="Search services (e.g., SSC, PAN, Passport, EPFO, MSME, Domicile)..." data-i18n-placeholder="srv_search_ph" />
         </div>
 
         <div class="filter-tabs" id="filterTabs">
-          <button class="filter-btn active" data-category="all">All Services</button>
-          <button class="filter-btn" data-category="exams">Exam Forms</button>
-          <button class="filter-btn" data-category="identity">Identity &amp; Docs</button>
-          <button class="filter-btn" data-category="certificates">Certificates</button>
-          <button class="filter-btn" data-category="business">Business &amp; PF</button>
-          <button class="filter-btn" data-category="travel">Passport &amp; Travel</button>
+          <button class="filter-btn active" data-category="all" data-i18n="cat_all">All Services</button>
+          <button class="filter-btn" data-category="exams" data-i18n="cat_exams">Exam Forms</button>
+          <button class="filter-btn" data-category="identity" data-i18n="cat_identity">Identity &amp; Docs</button>
+          <button class="filter-btn" data-category="certificates" data-i18n="cat_certificates">Certificates</button>
+          <button class="filter-btn" data-category="business" data-i18n="cat_business">Business &amp; PF</button>
+          <button class="filter-btn" data-category="travel" data-i18n="cat_travel">Passport &amp; Travel</button>
         </div>
       </div>
 
@@ -1318,31 +1362,31 @@
   <section id="pricing">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Zero Hidden Charges</span>
-        <h2>Transparent Two-Part Pricing</h2>
-        <p>Unlike traditional shops that bundle mystery margins, we always separate the official government fee from our digital assistance charge.</p>
+        <span class="section-tag" data-i18n="price_tag">Zero Hidden Charges</span>
+        <h2 data-i18n="price_title">Transparent Two-Part Pricing</h2>
+        <p data-i18n="price_sub">Unlike traditional shops that bundle mystery margins, we always separate the official government fee from our digital assistance charge.</p>
       </div>
 
       <div class="pricing-split">
         <div class="split-card">
-          <span class="split-badge blue">Part 1 • Official Portal Fee</span>
-          <h3>Government / Exam Fee (At Actuals)</h3>
-          <p>Paid strictly according to the official government portal or exam notification — zero markup from our side.</p>
+          <span class="split-badge blue" data-i18n="price_p1_badge">Part 1 • Official Portal Fee</span>
+          <h3 data-i18n="price_p1_title">Government / Exam Fee (At Actuals)</h3>
+          <p data-i18n="price_p1_desc">Paid strictly according to the official government portal or exam notification — zero markup from our side.</p>
           <ul class="check-list">
-            <li><span class="dot">✓</span> Official payment challan &amp; receipt shared immediately</li>
-            <li><span class="dot">✓</span> Option to pay directly via UPI QR on the portal</li>
-            <li><span class="dot">✓</span> Exact rupee-for-rupee transparency</li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p1_c1">Official payment challan &amp; receipt shared immediately</span></li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p1_c2">Option to pay directly via UPI QR on the portal</span></li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p1_c3">Exact rupee-for-rupee transparency</span></li>
           </ul>
         </div>
 
         <div class="split-card highlight">
-          <span class="split-badge orange">Part 2 • PocketCafe Concierge Fee</span>
-          <h3>Flat ₹29 to ₹149 Service Charge</h3>
-          <p>Covers document scanning/resizing, accurate form filling, draft verification, and PDF delivery right to your WhatsApp.</p>
+          <span class="split-badge orange" data-i18n="price_p2_badge">Part 2 • PocketCafe Concierge Fee</span>
+          <h3 data-i18n="price_p2_title">Flat ₹29 to ₹149 Service Charge</h3>
+          <p data-i18n="price_p2_desc">Covers document scanning/resizing, accurate form filling, draft verification, and PDF delivery right to your WhatsApp.</p>
           <ul class="check-list">
-            <li><span class="dot">✓</span> Photo, signature &amp; PDF compression included free</li>
-            <li><span class="dot">✓</span> Full screenshot preview for your approval before submit</li>
-            <li><span class="dot">✓</span> Pay service fee only after reviewing your draft</li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p2_c1">Photo, signature &amp; PDF compression included free</span></li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p2_c2">Full screenshot preview for your approval before submit</span></li>
+            <li><span class="dot">✓</span> <span data-i18n="price_p2_c3">Pay service fee only after reviewing your draft</span></li>
           </ul>
         </div>
       </div>
@@ -1353,26 +1397,26 @@
   <section id="how-it-works">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">3-Step WhatsApp Flow</span>
-        <h2>From Message to Final Receipt in Minutes</h2>
-        <p>No app downloads, no account creation, no standing in queues.</p>
+        <span class="section-tag" data-i18n="how_tag">3-Step WhatsApp Flow</span>
+        <h2 data-i18n="how_title">From Message to Final Receipt in Minutes</h2>
+        <p data-i18n="how_sub">No app downloads, no account creation, no standing in queues.</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-num">01</div>
-          <h3>Pick Service &amp; Message</h3>
-          <p>Click any service above to open a pre-filled WhatsApp chat. We immediately reply with the exact document checklist and fee breakdown.</p>
+          <h3 data-i18n="step1_title">Pick Service &amp; Message</h3>
+          <p data-i18n="step1_desc">Click any service above to open a pre-filled WhatsApp chat. We immediately reply with the exact document checklist and fee breakdown.</p>
         </div>
         <div class="step-card">
           <div class="step-num">02</div>
-          <h3>Verify Your Zero-Error Draft</h3>
-          <p>Send phone photos of your documents. We resize, format, fill the form, and send you a complete preview screenshot to double-check every spelling.</p>
+          <h3 data-i18n="step2_title">Verify Your Zero-Error Draft</h3>
+          <p data-i18n="step2_desc">Send phone photos of your documents. We resize, format, fill the form, and send you a complete preview screenshot to double-check every spelling.</p>
         </div>
         <div class="step-card">
           <div class="step-num">03</div>
-          <h3>Confirm &amp; Get Official PDF</h3>
-          <p>Once you approve, we submit the form and deliver your official acknowledgment slip, registration PDF, and payment receipt on WhatsApp.</p>
+          <h3 data-i18n="step3_title">Confirm &amp; Get Official PDF</h3>
+          <p data-i18n="step3_desc">Once you approve, we submit the form and deliver your official acknowledgment slip, registration PDF, and payment receipt on WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -1383,22 +1427,22 @@
     <div class="container">
       <div class="custom-box">
         <div>
-          <span class="section-tag">Need Something Specific?</span>
-          <h2 style="font-size: 1.9rem; margin-bottom: 12px;">Can't Find Your Form Listed?</h2>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <span class="section-tag" data-i18n="custom_tag">Need Something Specific?</span>
+          <h2 style="font-size: 1.9rem; margin-bottom: 12px;" data-i18n="custom_title">Can't Find Your Form Listed?</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n="custom_sub">
             Whether it's a state university admission, scholarship renewal, SPARSH pension update, or custom PDF editing — tell us what you need and we'll quote a flat fee on WhatsApp.
           </p>
         </div>
 
         <form class="custom-form" id="customRequestForm">
-          <input type="text" id="customName" class="form-input" placeholder="Your Name" required />
-          <input type="text" id="customService" class="form-input" placeholder="What service or form do you need?" required />
+          <input type="text" id="customName" class="form-input" placeholder="Your Name" data-i18n-placeholder="custom_name_ph" required />
+          <input type="text" id="customService" class="form-input" placeholder="What service or form do you need?" data-i18n-placeholder="custom_srv_ph" required />
           <select id="customUrgency" class="form-select">
-            <option value="Normal (Today)">Timeline: Normal (Today)</option>
-            <option value="Urgent (Within 1–2 Hours)">Timeline: Urgent (Within 1–2 Hours)</option>
-            <option value="Just checking fees & checklist">Timeline: Just checking fees &amp; checklist</option>
+            <option value="Normal (Today)" data-i18n="urg_normal">Timeline: Normal (Today)</option>
+            <option value="Urgent (Within 1–2 Hours)" data-i18n="urg_urgent">Timeline: Urgent (Within 1–2 Hours)</option>
+            <option value="Just checking fees & checklist" data-i18n="urg_check">Timeline: Just checking fees &amp; checklist</option>
           </select>
-          <button type="submit" class="btn btn-primary">Send Custom Request on WhatsApp →</button>
+          <button type="submit" class="btn btn-primary" data-i18n="custom_btn">Send Custom Request on WhatsApp →</button>
         </form>
       </div>
     </div>
@@ -1409,111 +1453,109 @@
   <!-- DEDICATED SECURITY VIEW (Hidden on Home Page) -->
   <div id="securityView" class="subpage-view" hidden>
     <div class="container subpage-topbar">
-      <button type="button" class="back-home-btn" data-view="home">← Back to Home</button>
+      <button type="button" class="back-home-btn" data-view="home" data-i18n="back_home">← Back to Home</button>
     </div>
-  <!-- TRUST & SECURITY -->
-  <section id="trust">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Built for Trust</span>
-        <h2>Your Documents Stay Private &amp; Accurate</h2>
-        <p>Every workflow is engineered to eliminate typos, rejected applications, and data misuse.</p>
-      </div>
+    <!-- TRUST & SECURITY -->
+    <section id="trust">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag" data-i18n="sec_tag">Built for Trust</span>
+          <h2 data-i18n="sec_title">Your Documents Stay Private &amp; Accurate</h2>
+          <p data-i18n="sec_sub">Every workflow is engineered to eliminate typos, rejected applications, and data misuse.</p>
+        </div>
 
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon">🛡️</div>
-          <h3>Zero-Error Guarantee</h3>
-          <p>Nothing is submitted until you review and approve the filled application preview.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon">🔐</div>
-          <h3>Privacy-First Handling</h3>
-          <p>Request instant deletion of your uploaded IDs right after completion — or opt into secure repeat-use vaulting.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon">📄</div>
-          <h3>Pro Document Formatting</h3>
-          <p>Exact KB sizing, DPI adjustments, background cleanup, and PDF merging handled at no extra cost.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon">⚡</div>
-          <h3>Deadline-Ready Speed</h3>
-          <p>Fast turnaround for last-day exam forms, Tatkal bookings, and urgent certificate filings.</p>
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-icon">🛡️</div>
+            <h3 data-i18n="sec1_title">Zero-Error Guarantee</h3>
+            <p data-i18n="sec1_desc">Nothing is submitted until you review and approve the filled application preview.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🔐</div>
+            <h3 data-i18n="sec2_title">Privacy-First Handling</h3>
+            <p data-i18n="sec2_desc">Request instant deletion of your uploaded IDs right after completion — or opt into secure repeat-use vaulting.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">📄</div>
+            <h3 data-i18n="sec3_title">Pro Document Formatting</h3>
+            <p data-i18n="sec3_desc">Exact KB sizing, DPI adjustments, background cleanup, and PDF merging handled at no extra cost.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">⚡</div>
+            <h3 data-i18n="sec4_title">Deadline-Ready Speed</h3>
+            <p data-i18n="sec4_desc">Fast turnaround for last-day exam forms, Tatkal bookings, and urgent certificate filings.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
   </div>
 
   <!-- DEDICATED FAQ VIEW (Hidden on Home Page) -->
   <div id="faqView" class="subpage-view" hidden>
     <div class="container subpage-topbar">
-      <button type="button" class="back-home-btn" data-view="home">← Back to Home</button>
+      <button type="button" class="back-home-btn" data-view="home" data-i18n="back_home">← Back to Home</button>
     </div>
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Common Questions</span>
-        <h2>Frequently Asked Questions</h2>
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag" data-i18n="faq_tag">Common Questions</span>
+          <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button class="faq-q">
+              <span data-i18n="faq1_q">When do I pay the service fee and government fee?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq1_a">
+              We first fill your form and send you a full preview screenshot to verify all details. You pay the government fee (at actuals) and PocketCafe service fee via UPI only when you are ready for final submission.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq2_q">Are my Aadhaar, PAN, and marksheet photos safe?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq2_a">
+              Yes. Your documents are used strictly for the application you requested. Once you receive your final confirmation PDF, we can immediately purge your files on request.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq3_q">Do I need a scanner to send my documents?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq3_a">
+              Not at all. Just click clear photos from your smartphone in good light and send them on WhatsApp. We handle cropping, enhancement, KB resizing, and PDF conversion for free.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq4_q">What if an OTP is required during form filling?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq4_a">
+              Our operator coordinates with you live on WhatsApp so you share the OTP only at the exact moment it is needed, keeping the process fast and secure.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq5_q">How does Live Photo verification work for exams like SSC, IBPS, or RRB?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-a" data-i18n="faq5_a">
+              For portals that require a live camera photo instead of an uploaded file, our operator fills out your entire form first and coordinates with you live on WhatsApp. At the photo step, we either share the official mobile capture link/QR code so you can click your live photo directly from your phone, or guide you through a quick 1-minute live session—ensuring proper lighting, plain background, and zero rejection.
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="faq-list">
-        <div class="faq-item open">
-          <button class="faq-q">
-            When do I pay the service fee and government fee?
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-a">
-            We first fill your form and send you a full preview screenshot to verify all details. You pay the government fee (at actuals) and PocketCafe service fee via UPI only when you are ready for final submission.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">
-            Are my Aadhaar, PAN, and marksheet photos safe?
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-a">
-            Yes. Your documents are used strictly for the application you requested. Once you receive your final confirmation PDF, we can immediately purge your files on request.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">
-            Do I need a scanner to send my documents?
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-a">
-            Not at all. Just click clear photos from your smartphone in good light and send them on WhatsApp. We handle cropping, enhancement, KB resizing, and PDF conversion for free.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">
-            What if an OTP is required during form filling?
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-a">
-            Our operator coordinates with you live on WhatsApp so you share the OTP only at the exact moment it is needed, keeping the process fast and secure.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">
-            How does Live Photo verification work for exams like SSC, IBPS, or RRB?
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-a">
-            For portals that require a live camera photo instead of an uploaded file, our operator fills out your entire form first and coordinates with you live on WhatsApp. At the photo step, we either share the official mobile capture link/QR code so you can click your live photo directly from your phone, or guide you through a quick 1-minute live session—ensuring proper lighting, plain background, and zero rejection.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+    </section>
   </div>
 
   <!-- FOOTER -->
@@ -1525,35 +1567,35 @@
             <span class="brand-icon">PC</span>
             <span>Pocket<span class="accent">Cafe</span></span>
           </a>
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="footer_desc">
             Cloud-first digital cyber cafe &amp; e-governance concierge. Fast, accurate, WhatsApp-driven online form assistance with transparent pricing.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer_links_title">Quick Links</h4>
           <ul>
-            <li><a href="#services" data-view="home" data-section="services">All Services</a></li>
-            <li><a href="#pricing" data-view="home" data-section="pricing">Pricing Promise</a></li>
-            <li><a href="#how-it-works" data-view="home" data-section="how-it-works">How It Works</a></li>
-            <li><a href="#security" data-view="security">Trust &amp; Security</a></li>
-            <li><a href="#faq" data-view="faq">FAQ</a></li>
+            <li><a href="#services" data-view="home" data-section="services" data-i18n="footer_l1">All Services</a></li>
+            <li><a href="#pricing" data-view="home" data-section="pricing" data-i18n="nav_pricing">Pricing Promise</a></li>
+            <li><a href="#how-it-works" data-view="home" data-section="how-it-works" data-i18n="nav_how">How It Works</a></li>
+            <li><a href="#security" data-view="security" data-i18n="footer_l4">Trust &amp; Security</a></li>
+            <li><a href="#faq" data-view="faq" data-i18n="nav_faq">FAQ</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Desk Hours &amp; Contact</h4>
+          <h4 data-i18n="footer_contact_title">Desk Hours &amp; Contact</h4>
           <ul>
-            <li>Mon – Sun: 9:00 AM – 10:00 PM IST</li>
-            <li>Service Mode: 100% Online (WhatsApp)</li>
-            <li><a href="javascript:void(0)" onclick="openWhatsApp('Hi PocketCafe! I have a quick question.')">Chat with Support →</a></li>
+            <li data-i18n="footer_hours">Mon – Sun: 9:00 AM – 10:00 PM IST</li>
+            <li data-i18n="footer_mode">Service Mode: 100% Online (WhatsApp)</li>
+            <li><a href="javascript:void(0)" onclick="openWhatsApp('Hi PocketCafe! I have a quick question.')" data-i18n="footer_chat">Chat with Support →</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> PocketCafe Digital Concierge. All rights reserved.</span>
-        <span>Disclaimer: PocketCafe is an independent private digital assistance service and is not affiliated with any government entity.</span>
+        <span>© <span id="year"></span> <span data-i18n="footer_copy">PocketCafe Digital Concierge. All rights reserved.</span></span>
+        <span data-i18n="footer_disclaimer">Disclaimer: PocketCafe is an independent private digital assistance service and is not affiliated with any government entity.</span>
       </div>
     </div>
   </footer>
@@ -1561,15 +1603,12 @@
   <!-- FLOATING WHATSAPP BUTTON -->
   <a href="javascript:void(0)" class="wa-fab" onclick="openWhatsApp('Hi PocketCafe! I need assistance with an online service.')" aria-label="Chat on WhatsApp">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.506 2 2.012 6.494 2.012 12.019c0 1.766.461 3.49 1.337 5.008L2 22l5.107-1.339a9.978 9.978 0 004.924 1.298h.004c5.524 0 10.019-4.494 10.019-10.019C22.054 6.494 17.559 2 12.031 2zm5.829 14.236c-.246.693-1.434 1.326-1.99 1.41-.513.077-1.179.109-1.902-.12-.441-.141-1.007-.329-1.729-.641-3.043-1.314-5.031-4.38-5.183-4.582-.152-.202-1.236-1.646-1.236-3.139 0-1.494.782-2.228 1.06-2.532.277-.304.605-.38.807-.38.202 0 .403.002.58.011.186.009.435-.071.681.521.252.607.858 2.094.933 2.246.076.152.126.329.025.531-.101.202-.151.329-.303.506-.151.177-.318.396-.454.531-.151.151-.309.316-.133.619.177.304.784 1.294 1.683 2.095 1.156 1.031 2.132 1.351 2.435 1.503.303.152.48.126.656-.076.177-.202.757-.884.959-1.187.202-.304.404-.253.681-.152.278.101 1.766.833 2.069.985.303.152.505.227.58.354.076.126.076.733-.17 1.426z"/></svg>
-    <span>Chat on WhatsApp</span>
+    <span data-i18n="fab_text">Chat on WhatsApp</span>
   </a>
 
   <script>
     // =========================================================================
     // CONFIGURATION
-    // 1. WHATSAPP_NUMBER: Your WhatsApp Business number (country code, no +)
-    // 2. AI_WORKER_URL: Optional Cloudflare Worker URL for full Gemini AI replies.
-    //    Leave "" to use the built-in Smart Desk engine (works instantly on GitHub Pages).
     // =========================================================================
     const CONFIG = {
       WHATSAPP_NUMBER: "917887259794",
@@ -1577,132 +1616,457 @@
       AI_WORKER_URL: "https://pocketcafe-ai.rahulyadav13400141.workers.dev"
     };
 
-    // Master Service Modules
+    // =========================================================================
+    // BILINGUAL DICTIONARY (English Default + Natural Everyday Hindi)
+    // =========================================================================
+    const I18N = {
+      en: {
+        nav_services: "Services",
+        nav_pricing: "Pricing Promise",
+        nav_how: "How It Works",
+        nav_security: "Security",
+        nav_faq: "FAQ",
+        desk_online: "Desk Online",
+        nav_wa: "WhatsApp Desk",
+        hero_eyebrow: "⚡ Cloud Jan Seva Kendra & Digital Concierge",
+        hero_title: 'Every Online Form &amp; Document Done <span class="gradient-text">Without Leaving Home.</span>',
+        hero_sub: 'Skip crowded cyber cafes and confusing portals. From Government Exam Forms, Aadhaar &amp; PAN updates to Passport, EPFO, MSME, and Tickets — send documents on WhatsApp and get verified PDFs with our <strong>Zero-Error Guarantee</strong>.',
+        hero_cta_wa: "Start on WhatsApp",
+        hero_cta_services: "Explore All Services",
+        trust_strip_1: "Zero-Error Preview Before Submit",
+        trust_strip_2: "Flat ₹29–₹149 Service Fee",
+        trust_strip_3: "100% Private & Secure",
+        desk_title: "PocketCafe Live Desk",
+        desk_badge: "AI Active 24/7",
+        desk_welcome: 'Namaste! I\'m the <strong>PocketCafe Live Desk</strong> assistant. Ask me about exam form fees, document checklists, Live Photo verification, PAN/Aadhaar, Passport, or EPFO — in English or Hinglish.<small>✓ Instant quotes • Zero hidden charges</small>',
+        chip_1: "Exam Form Fees",
+        chip_2: "Live Photo Help",
+        chip_3: "PAN / Aadhaar",
+        chip_4: "Passport / MSME",
+        desk_placeholder: "Ask anything (e.g., UPPSC form fee, PF KYC)...",
+        desk_send: "Ask",
+        desk_handoff: "Continue This Chat on WhatsApp →",
+        srv_tag: "All-In-One Service Desk",
+        srv_title: "Choose a Service & Book Instantly",
+        srv_sub: "Search or filter below. Every card clearly shows our flat concierge fee — government portal fees are always charged strictly at actuals with official receipts.",
+        srv_search_ph: "Search services (e.g., SSC, PAN, Passport, EPFO, MSME, Domicile)...",
+        cat_all: "All Services",
+        cat_exams: "Exam Forms",
+        cat_identity: "Identity & Docs",
+        cat_certificates: "Certificates",
+        cat_business: "Business & PF",
+        cat_travel: "Passport & Travel",
+        service_fee_label: "Service Fee",
+        book_wa_btn: "Book on WhatsApp →",
+        empty_title: "No matching service found",
+        empty_desc: "Don't worry — we handle almost every Indian online portal & form.",
+        empty_btn: "Ask on WhatsApp Instead",
+        price_tag: "Zero Hidden Charges",
+        price_title: "Transparent Two-Part Pricing",
+        price_sub: "Unlike traditional shops that bundle mystery margins, we always separate the official government fee from our digital assistance charge.",
+        price_p1_badge: "Part 1 • Official Portal Fee",
+        price_p1_title: "Government / Exam Fee (At Actuals)",
+        price_p1_desc: "Paid strictly according to the official government portal or exam notification — zero markup from our side.",
+        price_p1_c1: "Official payment challan & receipt shared immediately",
+        price_p1_c2: "Option to pay directly via UPI QR on the portal",
+        price_p1_c3: "Exact rupee-for-rupee transparency",
+        price_p2_badge: "Part 2 • PocketCafe Concierge Fee",
+        price_p2_title: "Flat ₹29 to ₹149 Service Charge",
+        price_p2_desc: "Covers document scanning/resizing, accurate form filling, draft verification, and PDF delivery right to your WhatsApp.",
+        price_p2_c1: "Photo, signature & PDF compression included free",
+        price_p2_c2: "Full screenshot preview for your approval before submit",
+        price_p2_c3: "Pay service fee only after reviewing your draft",
+        how_tag: "3-Step WhatsApp Flow",
+        how_title: "From Message to Final Receipt in Minutes",
+        how_sub: "No app downloads, no account creation, no standing in queues.",
+        step1_title: "Pick Service & Message",
+        step1_desc: "Click any service above to open a pre-filled WhatsApp chat. We immediately reply with the exact document checklist and fee breakdown.",
+        step2_title: "Verify Your Zero-Error Draft",
+        step2_desc: "Send phone photos of your documents. We resize, format, fill the form, and send you a complete preview screenshot to double-check every spelling.",
+        step3_title: "Confirm & Get Official PDF",
+        step3_desc: "Once you approve, we submit the form and deliver your official acknowledgment slip, registration PDF, and payment receipt on WhatsApp.",
+        custom_tag: "Need Something Specific?",
+        custom_title: "Can't Find Your Form Listed?",
+        custom_sub: "Whether it's a state university admission, scholarship renewal, SPARSH pension update, or custom PDF editing — tell us what you need and we'll quote a flat fee on WhatsApp.",
+        custom_name_ph: "Your Name",
+        custom_srv_ph: "What service or form do you need?",
+        urg_normal: "Timeline: Normal (Today)",
+        urg_urgent: "Timeline: Urgent (Within 1–2 Hours)",
+        urg_check: "Timeline: Just checking fees & checklist",
+        custom_btn: "Send Custom Request on WhatsApp →",
+        back_home: "← Back to Home",
+        sec_tag: "Built for Trust",
+        sec_title: "Your Documents Stay Private & Accurate",
+        sec_sub: "Every workflow is engineered to eliminate typos, rejected applications, and data misuse.",
+        sec1_title: "Zero-Error Guarantee",
+        sec1_desc: "Nothing is submitted until you review and approve the filled application preview.",
+        sec2_title: "Privacy-First Handling",
+        sec2_desc: "Request instant deletion of your uploaded IDs right after completion — or opt into secure repeat-use vaulting.",
+        sec3_title: "Pro Document Formatting",
+        sec3_desc: "Exact KB sizing, DPI adjustments, background cleanup, and PDF merging handled at no extra cost.",
+        sec4_title: "Deadline-Ready Speed",
+        sec4_desc: "Fast turnaround for last-day exam forms, Tatkal bookings, and urgent certificate filings.",
+        faq_tag: "Common Questions",
+        faq_title: "Frequently Asked Questions",
+        faq1_q: "When do I pay the service fee and government fee?",
+        faq1_a: "We first fill your form and send you a full preview screenshot to verify all details. You pay the government fee (at actuals) and PocketCafe service fee via UPI only when you are ready for final submission.",
+        faq2_q: "Are my Aadhaar, PAN, and marksheet photos safe?",
+        faq2_a: "Yes. Your documents are used strictly for the application you requested. Once you receive your final confirmation PDF, we can immediately purge your files on request.",
+        faq3_q: "Do I need a scanner to send my documents?",
+        faq3_a: "Not at all. Just click clear photos from your smartphone in good light and send them on WhatsApp. We handle cropping, enhancement, KB resizing, and PDF conversion for free.",
+        faq4_q: "What if an OTP is required during form filling?",
+        faq4_a: "Our operator coordinates with you live on WhatsApp so you share the OTP only at the exact moment it is needed, keeping the process fast and secure.",
+        faq5_q: "How does Live Photo verification work for exams like SSC, IBPS, or RRB?",
+        faq5_a: "For portals that require a live camera photo instead of an uploaded file, our operator fills out your entire form first and coordinates with you live on WhatsApp. At the photo step, we either share the official mobile capture link/QR code so you can click your live photo directly from your phone, or guide you through a quick 1-minute live session—ensuring proper lighting, plain background, and zero rejection.",
+        footer_desc: "Cloud-first digital cyber cafe & e-governance concierge. Fast, accurate, WhatsApp-driven online form assistance with transparent pricing.",
+        footer_links_title: "Quick Links",
+        footer_l1: "All Services",
+        footer_l4: "Trust & Security",
+        footer_contact_title: "Desk Hours & Contact",
+        footer_hours: "Mon – Sun: 9:00 AM – 10:00 PM IST",
+        footer_mode: "Service Mode: 100% Online (WhatsApp)",
+        footer_chat: "Chat with Support →",
+        footer_copy: "PocketCafe Digital Concierge. All rights reserved.",
+        footer_disclaimer: "Disclaimer: PocketCafe is an independent private digital assistance service and is not affiliated with any government entity.",
+        fab_text: "Chat on WhatsApp"
+      },
+      hi: {
+        nav_services: "सेवाएं",
+        nav_pricing: "फीस जानकारी",
+        nav_how: "कैसे काम करता है",
+        nav_security: "सुरक्षा",
+        nav_faq: "सवाल-जवाब",
+        desk_online: "डेस्क ऑनलाइन",
+        nav_wa: "WhatsApp डेस्क",
+        hero_eyebrow: "⚡ ऑनलाइन जन सेवा केंद्र और डिजिटल साइबर कैफे",
+        hero_title: 'हर ऑनलाइन फॉर्म और डॉक्यूमेंट अब <span class="gradient-text">घर बैठे पूरा करें।</span>',
+        hero_sub: 'साइबर कैफे की भीड़ और पोर्टल की झंझट छोड़ें। सरकारी एग्जाम फॉर्म, Aadhaar और PAN अपडेट से लेकर Passport, EPFO, MSME और टिकट तक — बस WhatsApp पर डॉक्यूमेंट भेजें और <strong>Zero-Error गारंटी</strong> के साथ वेरिफाइड PDF पाएं।',
+        hero_cta_wa: "WhatsApp पर शुरू करें",
+        hero_cta_services: "सभी सेवाएं देखें",
+        trust_strip_1: "सबमिट से पहले ड्राफ्ट प्रीव्यू",
+        trust_strip_2: "सिर्फ ₹29–₹149 सर्विस चार्ज",
+        trust_strip_3: "100% प्राइवेट और सुरक्षित",
+        desk_title: "PocketCafe लाइव डेस्क",
+        desk_badge: "AI सक्रिय 24/7",
+        desk_welcome: 'नमस्ते! मैं <strong>PocketCafe लाइव डेस्क</strong> असिस्टेंट हूँ। एग्जाम फॉर्म फीस, डॉक्यूमेंट लिस्ट, लाइव फोटो वेरिफिकेशन, PAN/Aadhaar, Passport या EPFO के बारे में हिंदी या इंग्लिश में कुछ भी पूछें।<small>✓ तुरंत फीस कोट • कोई हिडन चार्ज नहीं</small>',
+        chip_1: "एग्जाम फॉर्म फीस",
+        chip_2: "लाइव फोटो मदद",
+        chip_3: "PAN / Aadhaar",
+        chip_4: "Passport / MSME",
+        desk_placeholder: "कुछ भी पूछें (जैसे: UPPSC फॉर्म फीस, PF KYC)...",
+        desk_send: "पूछें",
+        desk_handoff: "इस चैट को WhatsApp पर आगे बढ़ाएं →",
+        srv_tag: "ऑल-इन-वन सर्विस डेस्क",
+        srv_title: "अपनी सर्विस चुनें और तुरंत बुक करें",
+        srv_sub: "नीचे सर्च या फ़िल्टर करें। हर कार्ड पर हमारा फिक्स सर्विस चार्ज साफ लिखा है — सरकारी पोर्टल की फीस हमेशा ऑफिशियल रसीद के साथ असल (Actuals) ली जाती है।",
+        srv_search_ph: "सर्विस खोजें (जैसे: SSC, PAN, Passport, EPFO, MSME, आय/निवास)...",
+        cat_all: "सभी सेवाएं",
+        cat_exams: "एग्जाम फॉर्म",
+        cat_identity: "आईडी और डॉक्यूमेंट",
+        cat_certificates: "प्रमाण पत्र",
+        cat_business: "बिजनेस और PF",
+        cat_travel: "पासपोर्ट और टिकट",
+        service_fee_label: "सर्विस चार्ज",
+        book_wa_btn: "WhatsApp पर बुक करें →",
+        empty_title: "यह सर्विस लिस्ट में नहीं मिली",
+        empty_desc: "चिंता न करें — हम भारत के लगभग हर ऑनलाइन पोर्टल और फॉर्म का काम करते हैं।",
+        empty_btn: "सीधे WhatsApp पर पूछें",
+        price_tag: "कोई छिपा हुआ चार्ज नहीं",
+        price_title: "बिल्कुल पारदर्शी 2-पार्ट फीस",
+        price_sub: "बाकी दुकानों की तरह हम फीस मिलाकर नहीं बताते — सरकारी फीस और हमारा सर्विस चार्ज हमेशा अलग और साफ रहता है।",
+        price_p1_badge: "भाग 1 • ऑफिशियल पोर्टल फीस",
+        price_p1_title: "सरकारी / एग्जाम फीस (बिल्कुल असल)",
+        price_p1_desc: "सरकारी पोर्टल या एग्जाम नोटिफिकेशन के अनुसार जो फीस तय है, ठीक वही ली जाती है — हमारी तरफ से ₹1 भी अतिरिक्त नहीं।",
+        price_p1_c1: "ऑफिशियल पेमेंट चालान और रसीद तुरंत मिलती है",
+        price_p1_c2: "पोर्टल के UPI QR पर सीधे पेमेंट का विकल्प",
+        price_p1_c3: "एक-एक रुपये का पूरा हिसाब",
+        price_p2_badge: "भाग 2 • PocketCafe सर्विस चार्ज",
+        price_p2_title: "फ्लैट ₹29 से ₹149 सर्विस चार्ज",
+        price_p2_desc: "इसमें डॉक्यूमेंट स्कैनिंग/रिसाइजिंग, सही फॉर्म भरना, ड्राफ्ट वेरिफिकेशन और WhatsApp पर फाइनल PDF भेजना शामिल है।",
+        price_p2_c1: "फोटो, सिग्नेचर और PDF साइज सेटिंग बिल्कुल फ्री",
+        price_p2_c2: "फाइनल सबमिट से पहले पूरा स्क्रीनशॉट प्रीव्यू",
+        price_p2_c3: "अपना ड्राफ्ट चेक करने के बाद ही सर्विस चार्ज दें",
+        how_tag: "सिर्फ 3 आसान स्टेप्स",
+        how_title: "मैसेज से फाइनल रसीद तक कुछ ही मिनटों में",
+        how_sub: "न कोई ऐप डाउनलोड, न अकाउंट बनाना, न लाइन में लगना।",
+        step1_title: "सर्विस चुनें और मैसेज करें",
+        step1_desc: "ऊपर किसी भी सर्विस पर क्लिक करें और WhatsApp चैट खोलें। हम तुरंत जरूरी डॉक्यूमेंट्स और फीस की जानकारी भेजते हैं।",
+        step2_title: "ड्राफ्ट चेक करें (Zero-Error)",
+        step2_desc: "मोबाइल से डॉक्यूमेंट्स की फोटो भेजें। हम रिसाइज करके फॉर्म भरते हैं और हर स्पेलिंग चेक करने के लिए आपको पूरा प्रीव्यू भेजते हैं।",
+        step3_title: "कन्फर्म करें और PDF पाएं",
+        step3_desc: "आपके OK कहते ही हम फॉर्म सबमिट करते हैं और ऑफिशियल रसीद व रजिस्ट्रेशन PDF सीधे आपके WhatsApp पर भेज देते हैं।",
+        custom_tag: "कुछ और बनवाना है?",
+        custom_title: "आपका फॉर्म ऊपर लिस्ट में नहीं है?",
+        custom_sub: "चाहे यूनिवर्सिटी एडमिशन हो, स्कॉलरशिप रिन्यूअल, SPARSH पेंशन अपडेट या कोई कस्टम PDF काम — नीचे लिखें और WhatsApp पर तुरंत फीस जानें।",
+        custom_name_ph: "आपका नाम",
+        custom_srv_ph: "आपको कौन सा फॉर्म या सर्विस चाहिए?",
+        urg_normal: "समय: सामान्य (आज ही)",
+        urg_urgent: "समय: अर्जेंट (1–2 घंटे के अंदर)",
+        urg_check: "समय: सिर्फ फीस और डॉक्यूमेंट पूछना है",
+        custom_btn: "WhatsApp पर रिक्वेस्ट भेजें →",
+        back_home: "← होम पेज पर वापस जाएं",
+        sec_tag: "भरोसे और सुरक्षा के लिए",
+        sec_title: "आपके डॉक्यूमेंट्स 100% प्राइवेट और सुरक्षित",
+        sec_sub: "हमारा हर प्रोसेस गलतियों, फॉर्म रिजेक्शन और डेटा के गलत इस्तेमाल को रोकने के लिए बनाया गया है।",
+        sec1_title: "Zero-Error गारंटी",
+        sec1_desc: "जब तक आप भरे हुए फॉर्म का प्रीव्यू चेक करके OK नहीं करते, तब तक सबमिट नहीं किया जाता।",
+        sec2_title: "प्राइवेसी सबसे पहले",
+        sec2_desc: "काम पूरा होते ही आप अपने डॉक्यूमेंट्स तुरंत डिलीट करवा सकते हैं — या बार-बार इस्तेमाल के लिए सुरक्षित रख सकते हैं।",
+        sec3_title: "प्रो डॉक्यूमेंट फॉर्मेटिंग",
+        sec3_desc: "सही KB साइज, DPI सेटिंग, बैकग्राउंड क्लीनअप और PDF मर्जिंग बिना किसी एक्स्ट्रा चार्ज के।",
+        sec4_title: "लास्ट-डेट रेडी स्पीड",
+        sec4_desc: "आखिरी दिन के एग्जाम फॉर्म, तत्काल टिकट और अर्जेंट सर्टिफिकेट के लिए तेज सर्विस।",
+        faq_tag: "अक्सर पूछे जाने वाले सवाल",
+        faq_title: "आपके सवाल, हमारे जवाब (FAQ)",
+        faq1_q: "सर्विस चार्ज और सरकारी फीस कब देनी होती है?",
+        faq1_a: "पहले हम आपका फॉर्म भरकर पूरा प्रीव्यू स्क्रीनशॉट भेजते हैं ताकि आप हर डिटेल चेक कर लें। जब आप फाइनल सबमिट के लिए तैयार हों, तभी UPI से सरकारी फीस (असल) और PocketCafe सर्विस चार्ज देना होता है।",
+        faq2_q: "क्या मेरे Aadhaar, PAN और मार्कशीट की फोटो सुरक्षित हैं?",
+        faq2_a: "हाँ, बिल्कुल। आपके डॉक्यूमेंट्स सिर्फ उसी फॉर्म के लिए इस्तेमाल होते हैं जिसके लिए आपने कहा है। फाइनल PDF मिलने के बाद आपके कहने पर हम फाइल्स तुरंत डिलीट कर देते हैं।",
+        faq3_q: "क्या डॉक्यूमेंट भेजने के लिए स्कैनर जरूरी है?",
+        faq3_a: "बिल्कुल नहीं। बस अच्छी रोशनी में अपने फोन से साफ फोटो खींचकर WhatsApp पर भेज दें। क्रॉपिंग, क्लीनिंग, KB रिसाइजिंग और PDF बनाना हमारी जिम्मेदारी है — वह भी फ्री।",
+        faq4_q: "फॉर्म भरते समय OTP की जरूरत पड़े तो क्या होगा?",
+        faq4_a: "हमारा ऑपरेटर WhatsApp पर आपके साथ लाइव संपर्क में रहता है, ताकि आप ठीक उसी समय OTP शेयर करें जब पोर्टल पर जरूरत हो। इससे काम तेज और सुरक्षित होता है।",
+        faq5_q: "SSC, IBPS या RRB जैसे एग्जाम में Live Photo वेरिफिकेशन कैसे होता है?",
+        faq5_a: "जिन पोर्टल पर अपलोड फोटो की जगह लाइव कैमरा फोटो जरूरी होती है, वहां हमारा ऑपरेटर पहले आपका पूरा फॉर्म भर देता है और WhatsApp पर आपसे लाइव जुड़ता है। फोटो स्टेप पर हम ऑफिशियल मोबाइल कैप्चर लिंक/QR शेयर करते हैं या 1 मिनट के लाइव सेशन से सही रोशनी और साफ बैकग्राउंड में आपकी फोटो कैप्चर करवाते हैं — ताकि फॉर्म बिल्कुल रिजेक्ट न हो।",
+        footer_desc: "क्लाउड-फर्स्ट डिजिटल साइबर कैफे और ई-गवर्नेंस सर्विस। WhatsApp पर तेज, सटीक और पारदर्शी ऑनलाइन फॉर्म सहायता।",
+        footer_links_title: "क्विक लिंक्स",
+        footer_l1: "सभी सेवाएं",
+        footer_l4: "भरोसा और सुरक्षा",
+        footer_contact_title: "समय और संपर्क",
+        footer_hours: "सोम – रवि: सुबह 9:00 से रात 10:00 बजे तक",
+        footer_mode: "सर्विस मोड: 100% ऑनलाइन (WhatsApp)",
+        footer_chat: "सपोर्ट से चैट करें →",
+        footer_copy: "PocketCafe डिजिटल कॉन्सिएर्ज। सर्वाधिकार सुरक्षित।",
+        footer_disclaimer: "अस्वीकरण: PocketCafe एक स्वतंत्र निजी डिजिटल सहायता सेवा है और किसी भी सरकारी संस्था से संबद्ध नहीं है।",
+        fab_text: "WhatsApp पर चैट करें"
+      }
+    };
+
+    // Master Service Modules (Bilingual)
     const SERVICES = [
       {
         id: "exam-forms",
-        title: "Govt. Exam Form Filling",
         category: "exams",
-        categoryLabel: "Exam Forms",
         icon: "📝",
-        desc: "SSC, IBPS, SBI, RRB, UPPSC, UPSC, Police & Teaching exam applications with photo/sign resizing and preview check.",
         serviceFee: "₹79",
-        govtFee: "+ Exam Fee (Actuals)"
+        title: "Govt. Exam Form Filling",
+        title_hi: "सरकारी एग्जाम फॉर्म फिलिंग",
+        categoryLabel: "Exam Forms",
+        categoryLabel_hi: "एग्जाम फॉर्म",
+        desc: "SSC, IBPS, SBI, RRB, UPPSC, UPSC, Police & Teaching exam applications with photo/sign resizing and preview check.",
+        desc_hi: "SSC, IBPS, SBI, RRB, UPPSC, UPSC, पुलिस और टीचिंग एग्जाम फॉर्म — फोटो/साइन रिसाइजिंग और प्रीव्यू चेक सहित।",
+        govtFee: "+ Exam Fee (Actuals)",
+        govtFee_hi: "+ एग्जाम फीस (असल)"
       },
       {
         id: "admit-card",
-        title: "Admit Card / Result / Scorecard",
         category: "exams",
-        categoryLabel: "Exam Forms",
         icon: "🎟️",
-        desc: "Instant download, clean print-ready PDF formatting, and delivery straight to your WhatsApp.",
         serviceFee: "₹29",
-        govtFee: "No Govt. Fee"
+        title: "Admit Card / Result / Scorecard",
+        title_hi: "एडमिट कार्ड / रिजल्ट / स्कोरकार्ड",
+        categoryLabel: "Exam Forms",
+        categoryLabel_hi: "एग्जाम फॉर्म",
+        desc: "Instant download, clean print-ready PDF formatting, and delivery straight to your WhatsApp.",
+        desc_hi: "तुरंत डाउनलोड, साफ प्रिंट-रेडी PDF फॉर्मेटिंग और सीधे आपके WhatsApp पर डिलीवरी।",
+        govtFee: "No Govt. Fee",
+        govtFee_hi: "कोई सरकारी फीस नहीं"
       },
       {
         id: "aadhaar-update",
-        title: "Aadhaar Address & Doc Update",
         category: "identity",
-        categoryLabel: "Identity & Docs",
         icon: "🪪",
-        desc: "Online Aadhaar address update, document update, PVC card order, and status tracking.",
         serviceFee: "₹59",
-        govtFee: "+ UIDAI Fee (Actuals)"
+        title: "Aadhaar Address & Doc Update",
+        title_hi: "आधार पता और डॉक्यूमेंट अपडेट",
+        categoryLabel: "Identity & Docs",
+        categoryLabel_hi: "आईडी और डॉक्यूमेंट",
+        desc: "Online Aadhaar address update, document update, PVC card order, and status tracking.",
+        desc_hi: "ऑनलाइन आधार एड्रेस अपडेट, डॉक्यूमेंट अपडेट, PVC कार्ड ऑर्डर और स्टेटस ट्रैकिंग।",
+        govtFee: "+ UIDAI Fee (Actuals)",
+        govtFee_hi: "+ UIDAI फीस (असल)"
       },
       {
         id: "pan-card",
-        title: "New PAN / Correction / e-PAN",
         category: "identity",
-        categoryLabel: "Identity & Docs",
         icon: "💳",
-        desc: "Fresh PAN application, name/DOB/father's name correction, reprint, or Aadhaar-PAN linking.",
         serviceFee: "₹79",
-        govtFee: "+ NSDL/UTIITSL Fee"
+        title: "New PAN / Correction / e-PAN",
+        title_hi: "नया PAN / सुधार / e-PAN",
+        categoryLabel: "Identity & Docs",
+        categoryLabel_hi: "आईडी और डॉक्यूमेंट",
+        desc: "Fresh PAN application, name/DOB/father's name correction, reprint, or Aadhaar-PAN linking.",
+        desc_hi: "नया PAN कार्ड, नाम/जन्मतिथि/पिता के नाम में सुधार, रीप्रिंट या आधार-पैन लिंकिंग।",
+        govtFee: "+ NSDL/UTIITSL Fee",
+        govtFee_hi: "+ NSDL/UTIITSL फीस"
       },
       {
         id: "certificates",
-        title: "Income / Caste / Domicile Cert.",
         category: "certificates",
-        categoryLabel: "Certificates",
         icon: "📜",
-        desc: "State e-District online applications for Income, Caste, Domicile, and Birth/Death certificates.",
         serviceFee: "₹99",
-        govtFee: "+ Portal Fee (Actuals)"
+        title: "Income / Caste / Domicile Cert.",
+        title_hi: "आय / जाति / निवास प्रमाण पत्र",
+        categoryLabel: "Certificates",
+        categoryLabel_hi: "प्रमाण पत्र",
+        desc: "State e-District online applications for Income, Caste, Domicile, and Birth/Death certificates.",
+        desc_hi: "ई-डिस्ट्रिक्ट पोर्टल से आय, जाति, निवास और जन्म/मृत्यु प्रमाण पत्र के ऑनलाइन आवेदन।",
+        govtFee: "+ Portal Fee (Actuals)",
+        govtFee_hi: "+ पोर्टल फीस (असल)"
       },
       {
         id: "passport",
-        title: "Passport Application & Renewal",
         category: "travel",
-        categoryLabel: "Passport & Travel",
         icon: "🛂",
-        desc: "Fresh or re-issue passport form filling, PSK appointment slot booking, and document checklist.",
         serviceFee: "₹149",
-        govtFee: "+ Passport Fee (Actuals)"
+        title: "Passport Application & Renewal",
+        title_hi: "पासपोर्ट आवेदन और रिन्यूअल",
+        categoryLabel: "Passport & Travel",
+        categoryLabel_hi: "पासपोर्ट और टिकट",
+        desc: "Fresh or re-issue passport form filling, PSK appointment slot booking, and document checklist.",
+        desc_hi: "नया या री-इश्यू पासपोर्ट फॉर्म, PSK अपॉइंटमेंट स्लॉट बुकिंग और डॉक्यूमेंट चेकलिस्ट।",
+        govtFee: "+ Passport Fee (Actuals)",
+        govtFee_hi: "+ पासपोर्ट फीस (असल)"
       },
       {
         id: "driving-license",
-        title: "Driving License (LL / DL / Renewal)",
         category: "identity",
-        categoryLabel: "Identity & Docs",
         icon: "🚗",
-        desc: "Parivahan Sarathi Learner's License, permanent DL slot booking, renewal, and address change.",
         serviceFee: "₹129",
-        govtFee: "+ RTO Fee (Actuals)"
+        title: "Driving License (LL / DL / Renewal)",
+        title_hi: "ड्राइविंग लाइसेंस (LL / DL / रिन्यूअल)",
+        categoryLabel: "Identity & Docs",
+        categoryLabel_hi: "आईडी और डॉक्यूमेंट",
+        desc: "Parivahan Sarathi Learner's License, permanent DL slot booking, renewal, and address change.",
+        desc_hi: "परिवहन सारथी लर्नर लाइसेंस, पक्का DL स्लॉट बुकिंग, रिन्यूअल और पता बदलाव।",
+        govtFee: "+ RTO Fee (Actuals)",
+        govtFee_hi: "+ RTO फीस (असल)"
       },
       {
         id: "epfo-pf",
-        title: "EPFO / PF Withdrawal & KYC",
         category: "business",
-        categoryLabel: "Business & PF",
         icon: "🏦",
-        desc: "UAN activation, bank/Aadhaar KYC update, PF transfer, advance claim, and passbook check.",
         serviceFee: "₹129",
-        govtFee: "No Govt. Fee"
+        title: "EPFO / PF Withdrawal & KYC",
+        title_hi: "EPFO / PF निकासी और KYC",
+        categoryLabel: "Business & PF",
+        categoryLabel_hi: "बिजनेस और PF",
+        desc: "UAN activation, bank/Aadhaar KYC update, PF transfer, advance claim, and passbook check.",
+        desc_hi: "UAN एक्टिवेशन, बैंक/आधार KYC अपडेट, PF ट्रांसफर, एडवांस क्लेम और पासबुक चेक।",
+        govtFee: "No Govt. Fee",
+        govtFee_hi: "कोई सरकारी फीस नहीं"
       },
       {
         id: "msme-udyam",
-        title: "MSME (Udyam) Registration",
         category: "business",
-        categoryLabel: "Business & PF",
         icon: "🏢",
-        desc: "Official Udyam registration certificate for shops, startups, cafes, and small businesses.",
         serviceFee: "₹99",
-        govtFee: "Zero Govt. Fee"
+        title: "MSME (Udyam) Registration",
+        title_hi: "MSME (उद्यम) रजिस्ट्रेशन",
+        categoryLabel: "Business & PF",
+        categoryLabel_hi: "बिजनेस और PF",
+        desc: "Official Udyam registration certificate for shops, startups, cafes, and small businesses.",
+        desc_hi: "दुकानों, स्टार्टअप्स, कैफे और छोटे बिजनेस के लिए ऑफिशियल उद्यम रजिस्ट्रेशन सर्टिफिकेट।",
+        govtFee: "Zero Govt. Fee",
+        govtFee_hi: "₹0 सरकारी फीस"
       },
       {
         id: "fssai-basic",
-        title: "FSSAI Food License (Basic)",
         category: "business",
-        categoryLabel: "Business & PF",
         icon: "🍽️",
-        desc: "FoSCoS basic registration for cafes, cloud kitchens, food vans, and home bakers.",
         serviceFee: "₹149",
-        govtFee: "+ FSSAI Fee (Actuals)"
+        title: "FSSAI Food License (Basic)",
+        title_hi: "FSSAI फूड लाइसेंस (बेसिक)",
+        categoryLabel: "Business & PF",
+        categoryLabel_hi: "बिजनेस और PF",
+        desc: "FoSCoS basic registration for cafes, cloud kitchens, food vans, and home bakers.",
+        desc_hi: "कैफे, क्लाउड किचन, फूड वैन और होम बेकर्स के लिए FoSCoS बेसिक रजिस्ट्रेशन।",
+        govtFee: "+ FSSAI Fee (Actuals)",
+        govtFee_hi: "+ FSSAI फीस (असल)"
       },
       {
         id: "travel-tickets",
-        title: "Train / Flight / Bus Tickets",
         category: "travel",
-        categoryLabel: "Passport & Travel",
         icon: "✈️",
-        desc: "Confirmed ticket booking, Tatkal assistance, Armed Forces fare flights, and web check-in.",
         serviceFee: "₹49",
-        govtFee: "+ Ticket Fare (Actuals)"
+        title: "Train / Flight / Bus Tickets",
+        title_hi: "ट्रेन / फ्लाइट / बस टिकट बुकिंग",
+        categoryLabel: "Passport & Travel",
+        categoryLabel_hi: "पासपोर्ट और टिकट",
+        desc: "Confirmed ticket booking, Tatkal assistance, Armed Forces fare flights, and web check-in.",
+        desc_hi: "कन्फर्म टिकट बुकिंग, तत्काल सहायता, आर्म्ड फोर्सेस फेयर फ्लाइट्स और वेब चेक-इन।",
+        govtFee: "+ Ticket Fare (Actuals)",
+        govtFee_hi: "+ टिकट किराया (असल)"
       },
       {
         id: "doc-tools",
-        title: "PDF Resize, Merge & Resume Format",
         category: "certificates",
-        categoryLabel: "Certificates",
         icon: "📎",
-        desc: "Custom KB compression for portals, multi-page PDF merge, image-to-PDF, and clean document edits.",
         serviceFee: "₹29",
-        govtFee: "No Govt. Fee"
+        title: "PDF Resize, Merge & Resume Format",
+        title_hi: "PDF रिसाइज, मर्ज और रिज्यूमे फॉर्मेट",
+        categoryLabel: "Certificates",
+        categoryLabel_hi: "प्रमाण पत्र",
+        desc: "Custom KB compression for portals, multi-page PDF merge, image-to-PDF, and clean document edits.",
+        desc_hi: "पोर्टल के लिए सही KB साइज, मल्टी-पेज PDF मर्ज, फोटो-टू-PDF और साफ डॉक्यूमेंट एडिटिंग।",
+        govtFee: "No Govt. Fee",
+        govtFee_hi: "कोई सरकारी फीस नहीं"
       }
     ];
 
+    // Default strictly to English ("en")
+    let currentLang = "en";
     let activeCategory = "all";
     let searchQuery = "";
+
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || "";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang === "hi" ? "hi" : "en";
+      document.documentElement.lang = currentLang;
+
+      // Update toggle button active states
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        const isActive = btn.dataset.lang === currentLang;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+
+      // Plain text translations
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (I18N[currentLang][key]) {
+          el.textContent = I18N[currentLang][key];
+        }
+      });
+
+      // HTML translations (headings/subtitles with emphasis)
+      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        const key = el.dataset.i18nHtml;
+        if (I18N[currentLang][key]) {
+          el.innerHTML = I18N[currentLang][key];
+        }
+      });
+
+      // Placeholder translations
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.dataset.i18nPlaceholder;
+        if (I18N[currentLang][key]) {
+          el.placeholder = I18N[currentLang][key];
+        }
+      });
+
+      renderServices();
+    }
+
+    // Bind language toggle buttons
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applyLanguage(btn.dataset.lang);
+      });
+    });
 
     function openWhatsApp(message) {
       const encoded = encodeURIComponent(message);
@@ -1754,109 +2118,83 @@
     // Built-in instant knowledge responder (zero-backend fallback)
     function getLocalSmartReply(query) {
       const q = query.toLowerCase();
+      const hi = currentLang === "hi" || /[\u0900-\u097F]/.test(query);
 
-      if (/(live photo|camera|selfie|webcam|photo verify|photo verification)/.test(q)) {
-        return {
-          text: "For **Live Photo verification** (SSC, IBPS, RRB), we fill your entire form first. At the photo step, we share the official mobile capture link/QR or do a quick 1-min WhatsApp coordination so you click your live photo directly from your phone with zero rejection.",
-          note: "✓ Covered inside the ₹79 exam form fee"
-        };
+      if (/(live photo|camera|selfie|webcam|photo verify|photo verification|लाइव फोटो|फोटो वेरिफिकेशन)/.test(q)) {
+        return hi
+          ? { text: "**लाइव फोटो वेरिफिकेशन** (SSC, IBPS, RRB) के लिए पहले हम आपका पूरा फॉर्म भर देते हैं। फोटो स्टेप पर हम मोबाइल कैप्चर लिंक/QR शेयर करते हैं या 1 मिनट WhatsApp पर जुड़कर सही रोशनी में आपकी लाइव फोटो कैप्चर करवाते हैं।", note: "✓ ₹79 एग्जाम फॉर्म फीस में ही शामिल" }
+          : { text: "For **Live Photo verification** (SSC, IBPS, RRB), we fill your entire form first. At the photo step, we share the official mobile capture link/QR or do a quick 1-min WhatsApp coordination so you click your live photo directly from your phone with zero rejection.", note: "✓ Covered inside the ₹79 exam form fee" };
       }
 
-      if (/(exam|ssc|rrb|ibps|sbi|uppsc|upsc|police|tet|ctet|form|vacancy)/.test(q)) {
-        return {
-          text: "**Govt. Exam Form Filling** is **₹79** + official exam fee (at actuals).\n\nDocuments needed: 10th/12th/Grad marksheet, Aadhaar, passport photo, signature & category cert (if applicable). Photo/PDF resizing is free.",
-          note: "✓ Full preview shared before final payment"
-        };
+      if (/(exam|ssc|rrb|ibps|sbi|uppsc|upsc|police|tet|ctet|form|vacancy|एग्जाम|फॉर्म)/.test(q)) {
+        return hi
+          ? { text: "**सरकारी एग्जाम फॉर्म फिलिंग** का सर्विस चार्ज **₹79** + ऑफिशियल एग्जाम फीस (असल) है।\n\nजरूरी डॉक्यूमेंट्स: 10वीं/12वीं/ग्रेजुएशन मार्कशीट, आधार, फोटो, सिग्नेचर और जाति प्रमाण पत्र (यदि लागू हो)।", note: "✓ सबमिट से पहले पूरा प्रीव्यू दिखाया जाएगा" }
+          : { text: "**Govt. Exam Form Filling** is **₹79** + official exam fee (at actuals).\n\nDocuments needed: 10th/12th/Grad marksheet, Aadhaar, passport photo, signature & category cert (if applicable). Photo/PDF resizing is free.", note: "✓ Full preview shared before final payment" };
       }
 
-      if (/(admit|result|scorecard|hall ticket)/.test(q)) {
-        return {
-          text: "**Admit Card / Result / Scorecard** download & clean print-ready PDF formatting is just **₹29** (no govt fee). Send your Registration/Roll No. & DOB on WhatsApp.",
-          note: "✓ Delivered in minutes"
-        };
+      if (/(admit|result|scorecard|hall ticket|एडमिट|रिजल्ट)/.test(q)) {
+        return hi
+          ? { text: "**एडमिट कार्ड / रिजल्ट / स्कोरकार्ड** डाउनलोड और प्रिंट-रेडी PDF सिर्फ **₹29** में (कोई सरकारी फीस नहीं)। WhatsApp पर रजिस्ट्रेशन नंबर और DOB भेजें।", note: "✓ कुछ ही मिनटों में डिलीवरी" }
+          : { text: "**Admit Card / Result / Scorecard** download & clean print-ready PDF formatting is just **₹29** (no govt fee). Send your Registration/Roll No. & DOB on WhatsApp.", note: "✓ Delivered in minutes" };
       }
 
-      if (/(aadhaar|aadhar|uidai|pvc|address)/.test(q)) {
-        return {
-          text: "**Aadhaar Address / Document Update** is **₹59** + UIDAI portal fee (at actuals). You'll need your Aadhaar-linked mobile number for OTP and a valid address proof (e.g., electricity bill, bank passbook, or domicile).",
-          note: "✓ Official SRN receipt shared immediately"
-        };
+      if (/(aadhaar|aadhar|uidai|pvc|address|आधार|पता)/.test(q)) {
+        return hi
+          ? { text: "**आधार एड्रेस / डॉक्यूमेंट अपडेट** का चार्ज **₹59** + UIDAI फीस (असल) है। आधार से लिंक मोबाइल (OTP के लिए) और वैध पता प्रमाण (बिजली बिल, बैंक पासबुक या निवास) चाहिए।", note: "✓ ऑफिशियल SRN रसीद तुरंत मिलती है" }
+          : { text: "**Aadhaar Address / Document Update** is **₹59** + UIDAI portal fee (at actuals). You'll need your Aadhaar-linked mobile number for OTP and a valid address proof (e.g., electricity bill, bank passbook, or domicile).", note: "✓ Official SRN receipt shared immediately" };
       }
 
-      if (/(pan|nsdl|uti|epan|e-pan)/.test(q)) {
-        return {
-          text: "**New PAN / Correction / e-PAN** service fee is **₹79** + official NSDL/UTIITSL fee (at actuals).\n\nDocuments: Aadhaar card, 2 passport photos, and signature on white paper.",
-          note: "✓ e-PAN delivered digitally + physical card by post"
-        };
+      if (/(pan|nsdl|uti|epan|e-pan|पैन)/.test(q)) {
+        return hi
+          ? { text: "**नया PAN / सुधार / e-PAN** का सर्विस चार्ज **₹79** + NSDL/UTIITSL फीस (असल) है।\n\nडॉक्यूमेंट्स: आधार कार्ड, 2 पासपोर्ट फोटो और सफेद कागज पर सिग्नेचर।", note: "✓ e-PAN डिजिटल + फिजिकल कार्ड डाक से" }
+          : { text: "**New PAN / Correction / e-PAN** service fee is **₹79** + official NSDL/UTIITSL fee (at actuals).\n\nDocuments: Aadhaar card, 2 passport photos, and signature on white paper.", note: "✓ e-PAN delivered digitally + physical card by post" };
       }
 
-      if (/(passport|psk|police clearance|renewal)/.test(q)) {
-        return {
-          text: "**Passport Application & Renewal** is **₹149** + official Passport Seva fee (at actuals). Includes complete form filling, document checklist, and PSK appointment slot booking.",
-          note: "✓ Zero-error verification before slot lock"
-        };
+      if (/(passport|psk|police clearance|renewal|पासपोर्ट)/.test(q)) {
+        return hi
+          ? { text: "**पासपोर्ट आवेदन और रिन्यूअल** का चार्ज **₹149** + पासपोर्ट सेवा फीस (असल) है। इसमें पूरा फॉर्म, डॉक्यूमेंट चेकलिस्ट और PSK अपॉइंटमेंट स्लॉट बुकिंग शामिल है।", note: "✓ स्लॉट लॉक से पहले Zero-Error चेक" }
+          : { text: "**Passport Application & Renewal** is **₹149** + official Passport Seva fee (at actuals). Includes complete form filling, document checklist, and PSK appointment slot booking.", note: "✓ Zero-error verification before slot lock" };
       }
 
-      if (/(driving|license|licence|dl|ll|parivahan|rto)/.test(q)) {
-        return {
-          text: "**Driving License (LL / DL / Renewal)** is **₹129** + RTO fee (at actuals). Send Aadhaar, photo, signature, and existing DL (for renewal).",
-          note: "✓ Parivahan Sarathi slot booking included"
-        };
+      if (/(driving|license|licence|dl|ll|parivahan|rto|ड्राइविंग|लाइसेंस)/.test(q)) {
+        return hi
+          ? { text: "**ड्राइविंग लाइसेंस (LL / DL / रिन्यूअल)** का चार्ज **₹129** + RTO फीस (असल) है। आधार, फोटो, सिग्नेचर और पुराना DL (रिन्यूअल के लिए) भेजें।", note: "✓ परिवहन सारथी स्लॉट बुकिंग शामिल" }
+          : { text: "**Driving License (LL / DL / Renewal)** is **₹129** + RTO fee (at actuals). Send Aadhaar, photo, signature, and existing DL (for renewal).", note: "✓ Parivahan Sarathi slot booking included" };
       }
 
-      if (/(epfo|pf|uan|withdraw|kyc|pension|sparsh)/.test(q)) {
-        return {
-          text: "**EPFO / PF Withdrawal, KYC & Transfer** is **₹129** (zero govt fee). Keep your UAN, Aadhaar-linked mobile for OTP, and bank passbook/cheque photo ready.",
-          note: "✓ Live OTP coordination on WhatsApp"
-        };
+      if (/(epfo|pf|uan|withdraw|kyc|pension|sparsh|पीएफ|पेंशन)/.test(q)) {
+        return hi
+          ? { text: "**EPFO / PF निकासी और KYC** का चार्ज **₹129** है (कोई सरकारी फीस नहीं)। UAN, आधार से लिंक मोबाइल और बैंक पासबुक/चेक की फोटो तैयार रखें।", note: "✓ WhatsApp पर लाइव OTP सहायता" }
+          : { text: "**EPFO / PF Withdrawal, KYC & Transfer** is **₹129** (zero govt fee). Keep your UAN, Aadhaar-linked mobile for OTP, and bank passbook/cheque photo ready.", note: "✓ Live OTP coordination on WhatsApp" };
       }
 
-      if (/(msme|udyam|fssai|food license|shop|business)/.test(q)) {
-        return {
-          text: "**MSME (Udyam) Registration** is **₹99** (zero govt fee) and **FSSAI Basic Food License** is **₹149** + FSSAI fee (at actuals). You'll need Aadhaar, PAN, bank details, and business address.",
-          note: "✓ Official certificate PDF sent on WhatsApp"
-        };
+      if (/(msme|udyam|fssai|food license|shop|business|उद्यम|बिजनेस)/.test(q)) {
+        return hi
+          ? { text: "**MSME (उद्यम) रजिस्ट्रेशन** **₹99** (₹0 सरकारी फीस) और **FSSAI बेसिक फूड लाइसेंस** **₹149** + FSSAI फीस (असल) में होता है। आधार, PAN, बैंक डिटेल और दुकान का पता चाहिए।", note: "✓ ऑफिशियल सर्टिफिकेट PDF WhatsApp पर" }
+          : { text: "**MSME (Udyam) Registration** is **₹99** (zero govt fee) and **FSSAI Basic Food License** is **₹149** + FSSAI fee (at actuals). You'll need Aadhaar, PAN, bank details, and business address.", note: "✓ Official certificate PDF sent on WhatsApp" };
       }
 
-      if (/(income|caste|domicile|birth|death|e-district|certificate|aay|jati|niwas)/.test(q)) {
-        return {
-          text: "**Income / Caste / Domicile Certificate** (e-District) is **₹99** + portal fee (at actuals). Send Aadhaar, photo, and self-declaration (we format it for you).",
-          note: "✓ Application slip & tracking ID provided"
-        };
+      if (/(income|caste|domicile|birth|death|e-district|certificate|aay|jati|niwas|आय|जाति|निवास)/.test(q)) {
+        return hi
+          ? { text: "**आय / जाति / निवास प्रमाण पत्र** (ई-डिस्ट्रिक्ट) का चार्ज **₹99** + पोर्टल फीस (असल) है। आधार और फोटो भेजें, स्वप्रमाणित घोषणा पत्र हम तैयार कर देंगे।", note: "✓ आवेदन रसीद और ट्रैकिंग ID तुरंत" }
+          : { text: "**Income / Caste / Domicile Certificate** (e-District) is **₹99** + portal fee (at actuals). Send Aadhaar, photo, and self-declaration (we format it for you).", note: "✓ Application slip & tracking ID provided" };
       }
 
-      if (/(ticket|train|flight|bus|tatkal|irctc|travel)/.test(q)) {
-        return {
-          text: "**Train / Flight / Bus Ticket Booking** is **₹49** + actual ticket fare (including Tatkal assistance & Armed Forces fare flights). Share route, date, and passenger details on WhatsApp.",
-          note: "✓ Instant PDF ticket & PNR on WhatsApp"
-        };
+      if (/(ticket|train|flight|bus|tatkal|irctc|travel|टिकट|ट्रेन|फ्लाइट)/.test(q)) {
+        return hi
+          ? { text: "**ट्रेन / फ्लाइट / बस टिकट बुकिंग** सिर्फ **₹49** + असल किराया (तत्काल और आर्म्ड फोर्सेस फेयर भी उपलब्ध)। WhatsApp पर रूट, तारीख और यात्री डिटेल भेजें।", note: "✓ तुरंत PDF टिकट और PNR WhatsApp पर" }
+          : { text: "**Train / Flight / Bus Ticket Booking** is **₹49** + actual ticket fare (including Tatkal assistance & Armed Forces fare flights). Share route, date, and passenger details on WhatsApp.", note: "✓ Instant PDF ticket & PNR on WhatsApp" };
       }
 
-      if (/(pdf|resize|compress|merge|resume|cv|kb)/.test(q)) {
-        return {
-          text: "**PDF Resize, Merge & Resume Formatting** is just **₹29**. Send your photos or files on WhatsApp and tell us the target KB/format required.",
-          note: "✓ Ready in 5–10 minutes"
-        };
+      if (/(pdf|resize|compress|merge|resume|cv|kb|रिज्यूमे)/.test(q)) {
+        return hi
+          ? { text: "**PDF रिसाइज, मर्ज और रिज्यूमे फॉर्मेटिंग** सिर्फ **₹29** में। अपनी फाइल्स WhatsApp पर भेजें और जरूरी KB साइज बताएं।", note: "✓ 5–10 मिनट में तैयार" }
+          : { text: "**PDF Resize, Merge & Resume Formatting** is just **₹29**. Send your photos or files on WhatsApp and tell us the target KB/format required.", note: "✓ Ready in 5–10 minutes" };
       }
 
-      if (/(otp|safe|privacy|secure|trust|pay|payment|upi|charge|fee|price|rate)/.test(q)) {
-        return {
-          text: "Our flat service fees range from **₹29 to ₹149** + official govt fee (strictly at actuals). You pay via UPI **only after reviewing your filled draft preview**, and you can request immediate deletion of your documents once done.",
-          note: "✓ Zero-Error Guarantee • 100% Private"
-        };
-      }
-
-      if (/(time|timing|open|hours|contact|number|whatsapp)/.test(q)) {
-        return {
-          text: "PocketCafe Desk is open **Mon–Sun, 9:00 AM – 10:00 PM IST** (100% online via WhatsApp). Click **Continue on WhatsApp** below to message our operator directly.",
-          note: "✓ Avg. reply under 5 minutes"
-        };
-      }
-
-      return {
-        text: "We can definitely help with **" + query + "**! Our flat concierge fees range from **₹29–₹149** (+ official portal fee at actuals), with a full draft preview before you pay. Click **Continue This Chat on WhatsApp** below for an exact quote and checklist.",
-        note: "✓ Tap below to connect with an operator"
-      };
+      return hi
+        ? { text: "हम **" + query + "** में आपकी पूरी मदद कर सकते हैं! हमारा फिक्स सर्विस चार्ज **₹29–₹149** (+ सरकारी फीस असल) है और पेमेंट से पहले पूरा प्रीव्यू दिखाया जाता है। नीचे **WhatsApp पर आगे बढ़ाएं** पर क्लिक करें।", note: "✓ 5 मिनट के अंदर ऑपरेटर रिप्लाई" }
+        : { text: "We can definitely help with **" + query + "**! Our flat concierge fees range from **₹29–₹149** (+ official portal fee at actuals), with a full draft preview before you pay. Click **Continue This Chat on WhatsApp** below for an exact quote and checklist.", note: "✓ Tap below to connect with an operator" };
     }
 
     async function handleDeskQuery(userText) {
@@ -1869,7 +2207,6 @@
       deskInput.value = "";
       showTyping();
 
-      // If Cloudflare Worker URL is configured, call live Gemini AI backend
       if (CONFIG.AI_WORKER_URL) {
         try {
           const res = await fetch(CONFIG.AI_WORKER_URL, {
@@ -1881,7 +2218,8 @@
           const data = await res.json();
           removeTyping();
           const replyText = data.reply || getLocalSmartReply(clean).text;
-          appendBubble("bot", replyText, "✓ Powered by PocketCafe AI");
+          const aiNote = currentLang === "hi" ? "✓ PocketCafe AI द्वारा उत्तर" : "✓ Powered by PocketCafe AI";
+          appendBubble("bot", replyText, aiNote);
           chatHistory.push({ role: "assistant", content: replyText });
           return;
         } catch (err) {
@@ -1889,7 +2227,6 @@
         }
       }
 
-      // Built-in instant Smart Desk response (zero-latency feel)
       setTimeout(() => {
         removeTyping();
         const reply = getLocalSmartReply(clean);
@@ -1906,7 +2243,8 @@
     document.getElementById("deskChips").addEventListener("click", (e) => {
       const chip = e.target.closest(".chip-btn");
       if (!chip) return;
-      handleDeskQuery(chip.dataset.prompt);
+      const prompt = currentLang === "hi" ? chip.dataset.promptHi : chip.dataset.promptEn;
+      handleDeskQuery(prompt);
     });
 
     deskHandoffBtn.addEventListener("click", () => {
@@ -1917,29 +2255,33 @@
     });
 
     // =========================================================================
-    // SERVICE CATALOG RENDERING
+    // SERVICE CATALOG RENDERING (Bilingual)
     // =========================================================================
     function renderServices() {
       const grid = document.getElementById("servicesGrid");
       const q = searchQuery.trim().toLowerCase();
+      const isHi = currentLang === "hi";
 
       const filtered = SERVICES.filter((s) => {
         const matchesCat = activeCategory === "all" || s.category === activeCategory;
         const matchesSearch =
           !q ||
           s.title.toLowerCase().includes(q) ||
+          s.title_hi.toLowerCase().includes(q) ||
           s.desc.toLowerCase().includes(q) ||
-          s.categoryLabel.toLowerCase().includes(q);
+          s.desc_hi.toLowerCase().includes(q) ||
+          s.categoryLabel.toLowerCase().includes(q) ||
+          s.categoryLabel_hi.toLowerCase().includes(q);
         return matchesCat && matchesSearch;
       });
 
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="empty-state">
-            <h3 style="color:#F8FAFC; margin-bottom:8px;">No matching service found</h3>
-            <p style="margin-bottom:16px;">Don't worry — we handle almost every Indian online portal &amp; form.</p>
+            <h3 style="color:#F8FAFC; margin-bottom:8px;">${t("empty_title")}</h3>
+            <p style="margin-bottom:16px;">${t("empty_desc")}</p>
             <button class="btn btn-whatsapp" onclick="openWhatsApp('Hi PocketCafe! I need help with: ${q.replace(/'/g, "")}')">
-              Ask on WhatsApp Instead
+              ${t("empty_btn")}
             </button>
           </div>
         `;
@@ -1947,32 +2289,37 @@
       }
 
       grid.innerHTML = filtered
-        .map(
-          (s) => `
+        .map((s) => {
+          const title = isHi ? s.title_hi : s.title;
+          const desc = isHi ? s.desc_hi : s.desc;
+          const catLabel = isHi ? s.categoryLabel_hi : s.categoryLabel;
+          const govtFee = isHi ? s.govtFee_hi : s.govtFee;
+          const safeTitle = s.title.replace(/'/g, "\\'");
+          return `
           <article class="service-card">
             <div>
               <div class="card-top">
                 <div class="card-icon">${s.icon}</div>
-                <span class="card-cat">${s.categoryLabel}</span>
+                <span class="card-cat">${catLabel}</span>
               </div>
-              <h3>${s.title}</h3>
-              <p>${s.desc}</p>
+              <h3>${title}</h3>
+              <p>${desc}</p>
             </div>
             <div>
               <div class="price-box">
                 <div class="price-main">
-                  <span class="price-label">Service Fee</span>
+                  <span class="price-label">${t("service_fee_label")}</span>
                   <span class="price-amount">${s.serviceFee}</span>
                 </div>
-                <span class="govt-fee-note">${s.govtFee}</span>
+                <span class="govt-fee-note">${govtFee}</span>
               </div>
-              <button class="card-btn" onclick="bookService('${s.title.replace(/'/g, "\\'")}', '${s.serviceFee}')">
-                Book on WhatsApp →
+              <button class="card-btn" onclick="bookService('${safeTitle}', '${s.serviceFee}')">
+                ${t("book_wa_btn")}
               </button>
             </div>
           </article>
-        `
-        )
+        `;
+        })
         .join("");
     }
 
@@ -2083,9 +2430,9 @@
     window.addEventListener("hashchange", syncViewFromHash);
     syncViewFromHash();
 
-    // Year & Initial Render
+    // Year & Initial Render (English Default)
     document.getElementById("year").textContent = new Date().getFullYear();
-    renderServices();
+    applyLanguage("en");
   </script>
 </body>
 </html>
