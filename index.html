@@ -228,14 +228,14 @@
 
     /* Hero */
     .hero {
-      padding: 78px 0 56px;
+      padding: 64px 0 56px;
       position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 44px;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 40px;
       align-items: center;
     }
 
@@ -268,7 +268,7 @@
 
     .hero-sub {
       color: var(--text-secondary);
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       max-width: 580px;
       margin-bottom: 28px;
     }
@@ -299,15 +299,18 @@
       flex-shrink: 0;
     }
 
-    /* Hero Interactive Console Card */
+    /* Hero Interactive AI Live Desk Card */
     .hero-card {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.65));
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.72));
       border: 1px solid var(--border-subtle);
       border-radius: 22px;
-      padding: 26px;
+      padding: 20px;
       box-shadow: var(--shadow-lg);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .hero-card::before {
@@ -316,7 +319,7 @@
       inset: 0;
       border-radius: 22px;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.45), rgba(59, 130, 246, 0.3), transparent 65%);
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.5), rgba(59, 130, 246, 0.35), transparent 68%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
@@ -327,8 +330,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 16px;
-      margin-bottom: 18px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -345,77 +347,175 @@
       font-weight: 700;
       padding: 4px 10px;
       border-radius: 999px;
-      background: var(--accent-orange-soft);
-      color: #FDBA74;
+      background: rgba(34, 197, 94, 0.14);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86EFAC;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .quick-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .stat-box {
-      background: rgba(7, 11, 20, 0.65);
+    .desk-messages {
+      background: rgba(7, 11, 20, 0.78);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 14px;
-    }
-
-    .stat-val {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--text-primary);
-    }
-
-    .stat-val.orange { color: #FB923C; }
-    .stat-val.blue { color: #60A5FA; }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      margin-top: 2px;
-    }
-
-    .chat-preview {
-      background: rgba(7, 11, 20, 0.75);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 14px;
+      height: 255px;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
+      scroll-behavior: smooth;
+    }
+
+    .desk-messages::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .desk-messages::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 999px;
     }
 
     .bubble {
-      padding: 9px 13px;
-      border-radius: 12px;
+      padding: 10px 13px;
+      border-radius: 13px;
       max-width: 90%;
-      line-height: 1.45;
+      line-height: 1.5;
+      white-space: pre-line;
+      word-wrap: break-word;
     }
 
     .bubble.user {
       align-self: flex-end;
-      background: rgba(59, 130, 246, 0.2);
-      border: 1px solid rgba(59, 130, 246, 0.35);
+      background: rgba(59, 130, 246, 0.22);
+      border: 1px solid rgba(59, 130, 246, 0.38);
       color: #E0F2FE;
+      border-bottom-right-radius: 4px;
     }
 
     .bubble.bot {
       align-self: flex-start;
-      background: rgba(30, 41, 59, 0.9);
+      background: rgba(30, 41, 59, 0.92);
       border: 1px solid var(--border-subtle);
       color: var(--text-primary);
+      border-bottom-left-radius: 4px;
+    }
+
+    .bubble.bot strong {
+      color: #FDBA74;
     }
 
     .bubble small {
       display: block;
       color: #86EFAC;
       font-weight: 600;
-      margin-top: 3px;
+      margin-top: 5px;
+      font-size: 0.76rem;
+    }
+
+    .typing-dots {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+      padding: 4px 2px;
+    }
+
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #94A3B8;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+
+    .typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .chip-btn {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: #CBD5E1;
+      transition: all 0.18s ease;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent-orange);
+      color: #FDBA74;
+      background: rgba(249, 115, 22, 0.12);
+    }
+
+    .desk-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .desk-input {
+      flex: 1;
+      padding: 11px 14px;
+      border-radius: 11px;
+      background: rgba(7, 11, 20, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .desk-input:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .desk-send {
+      padding: 0 16px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--accent-orange), #EA580C);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .desk-send:hover {
+      opacity: 0.92;
+    }
+
+    .desk-handoff {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 11px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.32);
+      color: #86EFAC;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .desk-handoff:hover {
+      background: var(--whatsapp-dark);
+      border-color: var(--whatsapp-dark);
+      color: #fff;
     }
 
     /* Sections */
@@ -875,7 +975,7 @@
     }
 
     .faq-item.open .faq-a {
-      max-height: 220px;
+      max-height: 260px;
       padding-bottom: 18px;
     }
 
@@ -980,7 +1080,7 @@
       .services-grid { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .hero { padding: 48px 0 36px; }
+      .hero { padding: 44px 0 36px; }
       .custom-box { padding: 24px; }
       .wa-fab span { display: none; }
       .wa-fab { padding: 15px; }
@@ -1005,6 +1105,56 @@
       color: var(--text-secondary);
       font-weight: 500;
     }
+
+    /* Dedicated Subpage Views (Security & FAQ) */
+    .nav-links a.active-link,
+    .mobile-nav a.active-link {
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    .subpage-view[hidden],
+    #homeView[hidden] {
+      display: none !important;
+    }
+
+    .subpage-view {
+      min-height: 70vh;
+      animation: fadeView 0.22s ease;
+    }
+
+    @keyframes fadeView {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .subpage-topbar {
+      padding: 28px 0 0;
+    }
+
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .back-home-btn:hover {
+      border-color: var(--accent-orange);
+      color: #FDBA74;
+      background: rgba(249, 115, 22, 0.12);
+    }
+
+    .subpage-view section {
+      padding-top: 32px;
+    }
   </style>
 </head>
 <body>
@@ -1012,17 +1162,17 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container nav-inner">
-      <a href="#" class="brand">
+      <a href="#home" class="brand" data-view="home">
         <span class="brand-icon">PC</span>
         <span>Pocket<span class="accent">Cafe</span></span>
       </a>
 
       <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing Promise</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#trust">Security</a>
-        <a href="#faq">FAQ</a>
+        <a href="#services" data-view="home" data-section="services">Services</a>
+        <a href="#pricing" data-view="home" data-section="pricing">Pricing Promise</a>
+        <a href="#how-it-works" data-view="home" data-section="how-it-works">How It Works</a>
+        <a href="#security" data-view="security">Security</a>
+        <a href="#faq" data-view="faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
@@ -1039,14 +1189,16 @@
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="#services" onclick="toggleMobileNav()">Services</a>
-      <a href="#pricing" onclick="toggleMobileNav()">Pricing Promise</a>
-      <a href="#how-it-works" onclick="toggleMobileNav()">How It Works</a>
-      <a href="#trust" onclick="toggleMobileNav()">Security</a>
-      <a href="#faq" onclick="toggleMobileNav()">FAQ</a>
+      <a href="#services" data-view="home" data-section="services" onclick="toggleMobileNav()">Services</a>
+      <a href="#pricing" data-view="home" data-section="pricing" onclick="toggleMobileNav()">Pricing Promise</a>
+      <a href="#how-it-works" data-view="home" data-section="how-it-works" onclick="toggleMobileNav()">How It Works</a>
+      <a href="#security" data-view="security" onclick="toggleMobileNav()">Security</a>
+      <a href="#faq" data-view="faq" onclick="toggleMobileNav()">FAQ</a>
     </div>
   </header>
 
+  <!-- HOME VIEW -->
+  <main id="homeView">
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
@@ -1085,35 +1237,46 @@
         </div>
       </div>
 
-      <!-- Right Interactive Status Card -->
-      <div class="hero-card">
+      <!-- Right Interactive AI Live Desk -->
+      <div class="hero-card" id="liveDesk">
         <div class="console-header">
           <div class="console-title">
             <span>🛰️</span> PocketCafe Live Desk
           </div>
-          <span class="console-badge">Avg. Reply &lt; 5 Mins</span>
+          <span class="console-badge" id="deskStatusBadge">
+            <span class="live-dot"></span> AI Active 24/7
+          </span>
         </div>
 
-        <div class="quick-stats">
-          <div class="stat-box">
-            <div class="stat-val orange">₹29 – ₹149</div>
-            <div class="stat-label">Transparent Service Fee</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val blue">100%</div>
-            <div class="stat-label">Draft Verified by You</div>
-          </div>
-        </div>
-
-        <div class="chat-preview">
-          <div class="bubble user">
-            Hi PocketCafe, need to fill SSC / RRB form before tonight's deadline.
-          </div>
+        <div class="desk-messages" id="deskMessages" aria-live="polite">
           <div class="bubble bot">
-            Sure! Send your 10th/Grad marksheet, photo &amp; signature. Service fee is ₹79 + actual govt fee.
-            <small>✓ Draft preview shared before final payment</small>
+            Namaste! I'm the <strong>PocketCafe Live Desk</strong> assistant. Ask me about exam form fees, document checklists, Live Photo verification, PAN/Aadhaar, Passport, or EPFO — in English or Hinglish.
+            <small>✓ Instant quotes • Zero hidden charges</small>
           </div>
         </div>
+
+        <div class="quick-chips" id="deskChips">
+          <button type="button" class="chip-btn" data-prompt="SSC / RRB exam form fee & documents?">Exam Form Fees</button>
+          <button type="button" class="chip-btn" data-prompt="How does live photo verification work?">Live Photo Help</button>
+          <button type="button" class="chip-btn" data-prompt="Documents needed for PAN or Aadhaar update?">PAN / Aadhaar</button>
+          <button type="button" class="chip-btn" data-prompt="Passport or MSME Udyam registration fee?">Passport / MSME</button>
+        </div>
+
+        <form class="desk-form" id="deskForm">
+          <input
+            type="text"
+            id="deskInput"
+            class="desk-input"
+            placeholder="Ask anything (e.g., UPPSC form fee, PF KYC)..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="desk-send" id="deskSendBtn">Ask</button>
+        </form>
+
+        <button type="button" class="desk-handoff" id="deskHandoffBtn">
+          Continue This Chat on WhatsApp →
+        </button>
       </div>
     </div>
   </section>
@@ -1215,6 +1378,39 @@
     </div>
   </section>
 
+  <!-- CUSTOM REQUEST WIDGET -->
+  <section>
+    <div class="container">
+      <div class="custom-box">
+        <div>
+          <span class="section-tag">Need Something Specific?</span>
+          <h2 style="font-size: 1.9rem; margin-bottom: 12px;">Can't Find Your Form Listed?</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            Whether it's a state university admission, scholarship renewal, SPARSH pension update, or custom PDF editing — tell us what you need and we'll quote a flat fee on WhatsApp.
+          </p>
+        </div>
+
+        <form class="custom-form" id="customRequestForm">
+          <input type="text" id="customName" class="form-input" placeholder="Your Name" required />
+          <input type="text" id="customService" class="form-input" placeholder="What service or form do you need?" required />
+          <select id="customUrgency" class="form-select">
+            <option value="Normal (Today)">Timeline: Normal (Today)</option>
+            <option value="Urgent (Within 1–2 Hours)">Timeline: Urgent (Within 1–2 Hours)</option>
+            <option value="Just checking fees & checklist">Timeline: Just checking fees &amp; checklist</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Send Custom Request on WhatsApp →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- DEDICATED SECURITY VIEW (Hidden on Home Page) -->
+  <div id="securityView" class="subpage-view" hidden>
+    <div class="container subpage-topbar">
+      <button type="button" class="back-home-btn" data-view="home">← Back to Home</button>
+    </div>
   <!-- TRUST & SECURITY -->
   <section id="trust">
     <div class="container">
@@ -1249,32 +1445,13 @@
     </div>
   </section>
 
-  <!-- CUSTOM REQUEST WIDGET -->
-  <section>
-    <div class="container">
-      <div class="custom-box">
-        <div>
-          <span class="section-tag">Need Something Specific?</span>
-          <h2 style="font-size: 1.9rem; margin-bottom: 12px;">Can't Find Your Form Listed?</h2>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Whether it's a state university admission, scholarship renewal, SPARSH pension update, or custom PDF editing — tell us what you need and we'll quote a flat fee on WhatsApp.
-          </p>
-        </div>
+  </div>
 
-        <form class="custom-form" id="customRequestForm">
-          <input type="text" id="customName" class="form-input" placeholder="Your Name" required />
-          <input type="text" id="customService" class="form-input" placeholder="What service or form do you need?" required />
-          <select id="customUrgency" class="form-select">
-            <option value="Normal (Today)">Timeline: Normal (Today)</option>
-            <option value="Urgent (Within 1–2 Hours)">Timeline: Urgent (Within 1–2 Hours)</option>
-            <option value="Just checking fees & checklist">Timeline: Just checking fees &amp; checklist</option>
-          </select>
-          <button type="submit" class="btn btn-primary">Send Custom Request on WhatsApp →</button>
-        </form>
-      </div>
+  <!-- DEDICATED FAQ VIEW (Hidden on Home Page) -->
+  <div id="faqView" class="subpage-view" hidden>
+    <div class="container subpage-topbar">
+      <button type="button" class="back-home-btn" data-view="home">← Back to Home</button>
     </div>
-  </section>
-
   <!-- FAQ -->
   <section id="faq">
     <div class="container">
@@ -1337,12 +1514,14 @@
     </div>
   </section>
 
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#" class="brand">
+          <a href="#home" class="brand" data-view="home">
             <span class="brand-icon">PC</span>
             <span>Pocket<span class="accent">Cafe</span></span>
           </a>
@@ -1354,10 +1533,11 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#services">All Services</a></li>
-            <li><a href="#pricing">Pricing Promise</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#trust">Trust &amp; Security</a></li>
+            <li><a href="#services" data-view="home" data-section="services">All Services</a></li>
+            <li><a href="#pricing" data-view="home" data-section="pricing">Pricing Promise</a></li>
+            <li><a href="#how-it-works" data-view="home" data-section="how-it-works">How It Works</a></li>
+            <li><a href="#security" data-view="security">Trust &amp; Security</a></li>
+            <li><a href="#faq" data-view="faq">FAQ</a></li>
           </ul>
         </div>
 
@@ -1386,12 +1566,15 @@
 
   <script>
     // =========================================================================
-    // CONFIGURATION: Update your WhatsApp number here (with country code, no +)
-    // Example: "919876543210"
+    // CONFIGURATION
+    // 1. WHATSAPP_NUMBER: Your WhatsApp Business number (country code, no +)
+    // 2. AI_WORKER_URL: Optional Cloudflare Worker URL for full Gemini AI replies.
+    //    Leave "" to use the built-in Smart Desk engine (works instantly on GitHub Pages).
     // =========================================================================
     const CONFIG = {
       WHATSAPP_NUMBER: "917887259794",
-      BRAND_NAME: "PocketCafe"
+      BRAND_NAME: "PocketCafe",
+      AI_WORKER_URL: "https://pocketcafe-ai.rahulyadav13400141.workers.dev"
     };
 
     // Master Service Modules
@@ -1527,6 +1710,215 @@
       window.open(url, "_blank", "noopener,noreferrer");
     }
 
+    // =========================================================================
+    // LIVE DESK ENGINE (Hybrid: Cloudflare Gemini Worker + Built-in Smart Desk)
+    // =========================================================================
+    const deskMessages = document.getElementById("deskMessages");
+    const deskForm = document.getElementById("deskForm");
+    const deskInput = document.getElementById("deskInput");
+    const deskHandoffBtn = document.getElementById("deskHandoffBtn");
+    const chatHistory = [];
+    let lastUserTopic = "";
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function appendBubble(role, text, note = "") {
+      const div = document.createElement("div");
+      div.className = `bubble ${role}`;
+      const formatted = escapeHtml(text).replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      div.innerHTML = formatted + (note ? `<small>${escapeHtml(note)}</small>` : "");
+      deskMessages.appendChild(div);
+      deskMessages.scrollTop = deskMessages.scrollHeight;
+      return div;
+    }
+
+    function showTyping() {
+      const div = document.createElement("div");
+      div.className = "bubble bot";
+      div.id = "typingIndicator";
+      div.innerHTML = `<div class="typing-dots"><span></span><span></span><span></span></div>`;
+      deskMessages.appendChild(div);
+      deskMessages.scrollTop = deskMessages.scrollHeight;
+    }
+
+    function removeTyping() {
+      const el = document.getElementById("typingIndicator");
+      if (el) el.remove();
+    }
+
+    // Built-in instant knowledge responder (zero-backend fallback)
+    function getLocalSmartReply(query) {
+      const q = query.toLowerCase();
+
+      if (/(live photo|camera|selfie|webcam|photo verify|photo verification)/.test(q)) {
+        return {
+          text: "For **Live Photo verification** (SSC, IBPS, RRB), we fill your entire form first. At the photo step, we share the official mobile capture link/QR or do a quick 1-min WhatsApp coordination so you click your live photo directly from your phone with zero rejection.",
+          note: "✓ Covered inside the ₹79 exam form fee"
+        };
+      }
+
+      if (/(exam|ssc|rrb|ibps|sbi|uppsc|upsc|police|tet|ctet|form|vacancy)/.test(q)) {
+        return {
+          text: "**Govt. Exam Form Filling** is **₹79** + official exam fee (at actuals).\n\nDocuments needed: 10th/12th/Grad marksheet, Aadhaar, passport photo, signature & category cert (if applicable). Photo/PDF resizing is free.",
+          note: "✓ Full preview shared before final payment"
+        };
+      }
+
+      if (/(admit|result|scorecard|hall ticket)/.test(q)) {
+        return {
+          text: "**Admit Card / Result / Scorecard** download & clean print-ready PDF formatting is just **₹29** (no govt fee). Send your Registration/Roll No. & DOB on WhatsApp.",
+          note: "✓ Delivered in minutes"
+        };
+      }
+
+      if (/(aadhaar|aadhar|uidai|pvc|address)/.test(q)) {
+        return {
+          text: "**Aadhaar Address / Document Update** is **₹59** + UIDAI portal fee (at actuals). You'll need your Aadhaar-linked mobile number for OTP and a valid address proof (e.g., electricity bill, bank passbook, or domicile).",
+          note: "✓ Official SRN receipt shared immediately"
+        };
+      }
+
+      if (/(pan|nsdl|uti|epan|e-pan)/.test(q)) {
+        return {
+          text: "**New PAN / Correction / e-PAN** service fee is **₹79** + official NSDL/UTIITSL fee (at actuals).\n\nDocuments: Aadhaar card, 2 passport photos, and signature on white paper.",
+          note: "✓ e-PAN delivered digitally + physical card by post"
+        };
+      }
+
+      if (/(passport|psk|police clearance|renewal)/.test(q)) {
+        return {
+          text: "**Passport Application & Renewal** is **₹149** + official Passport Seva fee (at actuals). Includes complete form filling, document checklist, and PSK appointment slot booking.",
+          note: "✓ Zero-error verification before slot lock"
+        };
+      }
+
+      if (/(driving|license|licence|dl|ll|parivahan|rto)/.test(q)) {
+        return {
+          text: "**Driving License (LL / DL / Renewal)** is **₹129** + RTO fee (at actuals). Send Aadhaar, photo, signature, and existing DL (for renewal).",
+          note: "✓ Parivahan Sarathi slot booking included"
+        };
+      }
+
+      if (/(epfo|pf|uan|withdraw|kyc|pension|sparsh)/.test(q)) {
+        return {
+          text: "**EPFO / PF Withdrawal, KYC & Transfer** is **₹129** (zero govt fee). Keep your UAN, Aadhaar-linked mobile for OTP, and bank passbook/cheque photo ready.",
+          note: "✓ Live OTP coordination on WhatsApp"
+        };
+      }
+
+      if (/(msme|udyam|fssai|food license|shop|business)/.test(q)) {
+        return {
+          text: "**MSME (Udyam) Registration** is **₹99** (zero govt fee) and **FSSAI Basic Food License** is **₹149** + FSSAI fee (at actuals). You'll need Aadhaar, PAN, bank details, and business address.",
+          note: "✓ Official certificate PDF sent on WhatsApp"
+        };
+      }
+
+      if (/(income|caste|domicile|birth|death|e-district|certificate|aay|jati|niwas)/.test(q)) {
+        return {
+          text: "**Income / Caste / Domicile Certificate** (e-District) is **₹99** + portal fee (at actuals). Send Aadhaar, photo, and self-declaration (we format it for you).",
+          note: "✓ Application slip & tracking ID provided"
+        };
+      }
+
+      if (/(ticket|train|flight|bus|tatkal|irctc|travel)/.test(q)) {
+        return {
+          text: "**Train / Flight / Bus Ticket Booking** is **₹49** + actual ticket fare (including Tatkal assistance & Armed Forces fare flights). Share route, date, and passenger details on WhatsApp.",
+          note: "✓ Instant PDF ticket & PNR on WhatsApp"
+        };
+      }
+
+      if (/(pdf|resize|compress|merge|resume|cv|kb)/.test(q)) {
+        return {
+          text: "**PDF Resize, Merge & Resume Formatting** is just **₹29**. Send your photos or files on WhatsApp and tell us the target KB/format required.",
+          note: "✓ Ready in 5–10 minutes"
+        };
+      }
+
+      if (/(otp|safe|privacy|secure|trust|pay|payment|upi|charge|fee|price|rate)/.test(q)) {
+        return {
+          text: "Our flat service fees range from **₹29 to ₹149** + official govt fee (strictly at actuals). You pay via UPI **only after reviewing your filled draft preview**, and you can request immediate deletion of your documents once done.",
+          note: "✓ Zero-Error Guarantee • 100% Private"
+        };
+      }
+
+      if (/(time|timing|open|hours|contact|number|whatsapp)/.test(q)) {
+        return {
+          text: "PocketCafe Desk is open **Mon–Sun, 9:00 AM – 10:00 PM IST** (100% online via WhatsApp). Click **Continue on WhatsApp** below to message our operator directly.",
+          note: "✓ Avg. reply under 5 minutes"
+        };
+      }
+
+      return {
+        text: "We can definitely help with **" + query + "**! Our flat concierge fees range from **₹29–₹149** (+ official portal fee at actuals), with a full draft preview before you pay. Click **Continue This Chat on WhatsApp** below for an exact quote and checklist.",
+        note: "✓ Tap below to connect with an operator"
+      };
+    }
+
+    async function handleDeskQuery(userText) {
+      const clean = userText.trim();
+      if (!clean) return;
+
+      lastUserTopic = clean;
+      appendBubble("user", clean);
+      chatHistory.push({ role: "user", content: clean });
+      deskInput.value = "";
+      showTyping();
+
+      // If Cloudflare Worker URL is configured, call live Gemini AI backend
+      if (CONFIG.AI_WORKER_URL) {
+        try {
+          const res = await fetch(CONFIG.AI_WORKER_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: clean, history: chatHistory.slice(-6) })
+          });
+          if (!res.ok) throw new Error("Worker returned " + res.status);
+          const data = await res.json();
+          removeTyping();
+          const replyText = data.reply || getLocalSmartReply(clean).text;
+          appendBubble("bot", replyText, "✓ Powered by PocketCafe AI");
+          chatHistory.push({ role: "assistant", content: replyText });
+          return;
+        } catch (err) {
+          console.warn("AI Worker fallback:", err);
+        }
+      }
+
+      // Built-in instant Smart Desk response (zero-latency feel)
+      setTimeout(() => {
+        removeTyping();
+        const reply = getLocalSmartReply(clean);
+        appendBubble("bot", reply.text, reply.note);
+        chatHistory.push({ role: "assistant", content: reply.text });
+      }, 380);
+    }
+
+    deskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleDeskQuery(deskInput.value);
+    });
+
+    document.getElementById("deskChips").addEventListener("click", (e) => {
+      const chip = e.target.closest(".chip-btn");
+      if (!chip) return;
+      handleDeskQuery(chip.dataset.prompt);
+    });
+
+    deskHandoffBtn.addEventListener("click", () => {
+      const msg = lastUserTopic
+        ? `Hi ${CONFIG.BRAND_NAME}! I was just checking on the Live Desk about: "${lastUserTopic}". Please share the document checklist and next steps.`
+        : `Hi ${CONFIG.BRAND_NAME}! I'm messaging from the Live Desk and need help with an online form.`;
+      openWhatsApp(msg);
+    });
+
+    // =========================================================================
+    // SERVICE CATALOG RENDERING
+    // =========================================================================
     function renderServices() {
       const grid = document.getElementById("servicesGrid");
       const q = searchQuery.trim().toLowerCase();
@@ -1628,6 +2020,68 @@
       document.getElementById("mobileNav").classList.toggle("open");
     }
     document.getElementById("menuToggle").addEventListener("click", toggleMobileNav);
+
+    // =========================================================================
+    // PAGE VIEW ROUTER (Security & FAQ open as dedicated views when clicked)
+    // =========================================================================
+    const views = {
+      home: document.getElementById("homeView"),
+      security: document.getElementById("securityView"),
+      faq: document.getElementById("faqView")
+    };
+
+    function showView(viewName, sectionId = null, updateHash = true) {
+      const target = views[viewName] ? viewName : "home";
+      Object.entries(views).forEach(([key, el]) => {
+        el.hidden = key !== target;
+      });
+
+      document.querySelectorAll("[data-view]").forEach((el) => {
+        const isPageLink = el.dataset.view === "security" || el.dataset.view === "faq";
+        if (isPageLink) {
+          el.classList.toggle("active-link", el.dataset.view === target);
+        }
+      });
+
+      if (updateHash) {
+        const newHash = target === "home" ? (sectionId ? `#${sectionId}` : "#home") : `#${target}`;
+        if (window.location.hash !== newHash) {
+          history.pushState(null, "", newHash);
+        }
+      }
+
+      if (target === "home" && sectionId) {
+        const sec = document.getElementById(sectionId);
+        if (sec) {
+          sec.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest("[data-view]");
+      if (!trigger) return;
+      e.preventDefault();
+      showView(trigger.dataset.view, trigger.dataset.section || null, true);
+    });
+
+    function syncViewFromHash() {
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (hash === "security" || hash === "trust") {
+        showView("security", null, false);
+      } else if (hash === "faq") {
+        showView("faq", null, false);
+      } else if (hash && hash !== "home" && document.getElementById(hash)) {
+        showView("home", hash, false);
+      } else {
+        showView("home", null, false);
+      }
+    }
+
+    window.addEventListener("hashchange", syncViewFromHash);
+    syncViewFromHash();
 
     // Year & Initial Render
     document.getElementById("year").textContent = new Date().getFullYear();
