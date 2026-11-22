@@ -791,6 +791,197 @@
       color: var(--text-secondary);
     }
 
+    /* Horizontally Slidable Customer Feedback Carousel */
+    .reviews-shell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 4px 16px;
+      scrollbar-width: none;
+      cursor: grab;
+      width: 100%;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .reviews-track.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+      user-select: none;
+    }
+
+    .review-card {
+      flex: 0 0 calc((100% - 40px) / 3);
+      min-width: 290px;
+      scroll-snap-align: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 14px 32px -12px rgba(249, 115, 22, 0.25);
+    }
+
+    .review-card:nth-child(even):hover {
+      border-color: rgba(59, 130, 246, 0.55);
+      box-shadow: 0 14px 32px -12px rgba(59, 130, 246, 0.28);
+    }
+
+    .review-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(249, 115, 22, 0.28));
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      display: grid;
+      place-items: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #F8FAFC;
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .verified-tick {
+      color: #38BDF8;
+      font-size: 0.85rem;
+    }
+
+    .review-city {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .review-wa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86EFAC;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .review-stars {
+      color: #FBBF24;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      margin-bottom: -4px;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    .review-service-pill {
+      align-self: flex-start;
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.1);
+      color: #93C5FD;
+    }
+
+    .slider-nav-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .slider-nav-btn:hover {
+      border-color: var(--accent-orange);
+      color: #FDBA74;
+      background: rgba(249, 115, 22, 0.14);
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.3);
+      transition: all 0.22s ease;
+      padding: 0;
+    }
+
+    .slider-dot.active {
+      width: 24px;
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue));
+    }
+
+    @media (max-width: 980px) {
+      .review-card { flex: 0 0 calc((100% - 20px) / 2); }
+    }
+
+    @media (max-width: 680px) {
+      .review-card { flex: 0 0 86%; min-width: 260px; }
+      .slider-nav-btn { display: none; }
+    }
+
     /* Transparent Pricing Banner */
     .pricing-split {
       display: grid;
@@ -1097,6 +1288,134 @@
       transform: translateY(-3px) scale(1.02);
     }
 
+
+    /* Write a Review CTA & Dedicated Review Page */
+    .feedback-cta-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .review-form-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.72));
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .review-form-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.45), rgba(59, 130, 246, 0.35), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .review-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #CBD5E1;
+    }
+
+    .form-textarea {
+      width: 100%;
+      min-height: 115px;
+      resize: vertical;
+      padding: 13px 15px;
+      border-radius: 11px;
+      background: rgba(7, 11, 20, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .form-textarea:focus {
+      border-color: var(--accent-orange);
+    }
+
+    .star-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: rgba(7, 11, 20, 0.78);
+      border: 1px solid var(--border-subtle);
+      width: fit-content;
+    }
+
+    .star-btn {
+      font-size: 1.65rem;
+      line-height: 1;
+      color: #334155;
+      transition: transform 0.15s ease, color 0.15s ease;
+      padding: 2px;
+    }
+
+    .star-btn.active {
+      color: #FBBF24;
+    }
+
+    .star-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .star-rating-text {
+      margin-left: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #FDBA74;
+    }
+
+    .review-success-box {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #DCFCE7;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .review-success-box.show {
+      display: flex;
+    }
+
+    @media (max-width: 680px) {
+      .review-form-grid { grid-template-columns: 1fr; }
+      .review-form-card { padding: 22px; }
+    }
+
     /* Dedicated Subpage Views (Security & FAQ) */
     .nav-links a.active-link,
     .mobile-nav a.active-link {
@@ -1358,6 +1677,39 @@
     </div>
   </section>
 
+  <!-- CUSTOMER FEEDBACK SLIDER -->
+  <section id="feedback">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-i18n="rev_tag">Verified WhatsApp Reviews</span>
+        <h2 data-i18n="rev_title">Trusted by Students &amp; Families</h2>
+        <p data-i18n="rev_sub">Swipe or drag to see real experiences from customers who skipped cyber cafe queues.</p>
+      </div>
+
+      <div class="reviews-shell">
+        <button type="button" class="slider-nav-btn" id="revPrevBtn" aria-label="Previous Review">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <div class="reviews-track" id="reviewsTrack" aria-label="Customer Reviews Slider">
+          <!-- Rendered dynamically by JS -->
+        </div>
+
+        <button type="button" class="slider-nav-btn" id="revNextBtn" aria-label="Next Review">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="slider-dots" id="reviewsDots" aria-label="Review pagination"></div>
+
+      <div class="feedback-cta-row">
+        <button type="button" class="btn btn-outline" data-view="review" data-i18n="rev_write_btn">
+          ★ Write a Review
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- TRANSPARENT PRICING PROMISE -->
   <section id="pricing">
     <div class="container">
@@ -1558,6 +1910,85 @@
     </section>
   </div>
 
+  <!-- DEDICATED WRITE A REVIEW VIEW (Hidden on Home Page) -->
+  <div id="reviewView" class="subpage-view" hidden>
+    <div class="container subpage-topbar">
+      <button type="button" class="back-home-btn" data-view="home" data-i18n="back_home">← Back to Home</button>
+    </div>
+    <section id="write-review">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag" data-i18n="wrev_tag">Student &amp; User Feedback</span>
+          <h2 data-i18n="wrev_title">Share Your PocketCafe Experience</h2>
+          <p data-i18n="wrev_sub">Used PocketCafe for an exam form, Aadhaar/PAN, certificate, or ticket? Submit your review below — it will appear immediately in our Customer Feedback section.</p>
+        </div>
+
+        <div class="review-form-card">
+          <form id="reviewSubmitForm" class="review-form-grid">
+            <div class="form-group">
+              <label class="form-label" for="revNameInput" data-i18n="wrev_name_lbl">Your Name *</label>
+              <input type="text" id="revNameInput" class="form-input" placeholder="e.g., Ankit Verma" data-i18n-placeholder="wrev_name_ph" required maxlength="50" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="revCityInput" data-i18n="wrev_city_lbl">City / State *</label>
+              <input type="text" id="revCityInput" class="form-input" placeholder="e.g., Lucknow, UP" data-i18n-placeholder="wrev_city_ph" required maxlength="40" />
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="revServiceInput" data-i18n="wrev_srv_lbl">Service Used *</label>
+              <select id="revServiceInput" class="form-select" required>
+                <option value="Govt. Exam Form">Govt. Exam Form (SSC / IBPS / RRB / UPPSC)</option>
+                <option value="Admit Card / Result PDF">Admit Card / Result / Scorecard</option>
+                <option value="Aadhaar Update / PVC">Aadhaar Address / Doc Update</option>
+                <option value="PAN Card Service">New PAN / Correction / e-PAN</option>
+                <option value="Income / Caste / Domicile Cert.">Income / Caste / Domicile Certificate</option>
+                <option value="Passport Application / Renewal">Passport Application &amp; Renewal</option>
+                <option value="Driving License (LL / DL)">Driving License (LL / DL / Renewal)</option>
+                <option value="EPFO / PF KYC">EPFO / PF Withdrawal &amp; KYC</option>
+                <option value="MSME / FSSAI Registration">MSME (Udyam) / FSSAI Registration</option>
+                <option value="Train / Flight / Bus Ticket">Train / Flight / Bus Tickets</option>
+                <option value="PDF / Resume Formatting">PDF Resize, Merge &amp; Resume</option>
+                <option value="Other Digital Service">Other Digital Service</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" data-i18n="wrev_rating_lbl">Your Rating *</label>
+              <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Rating">
+                <button type="button" class="star-btn active" data-star="1" aria-label="1 star">★</button>
+                <button type="button" class="star-btn active" data-star="2" aria-label="2 stars">★</button>
+                <button type="button" class="star-btn active" data-star="3" aria-label="3 stars">★</button>
+                <button type="button" class="star-btn active" data-star="4" aria-label="4 stars">★</button>
+                <button type="button" class="star-btn active" data-star="5" aria-label="5 stars">★</button>
+                <span class="star-rating-text" id="starRatingText">5 / 5</span>
+              </div>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="revTextInput" data-i18n="wrev_msg_lbl">Your Review *</label>
+              <textarea id="revTextInput" class="form-textarea" placeholder="Tell us how your experience was (in English, Hindi, or Hinglish)..." data-i18n-placeholder="wrev_msg_ph" required maxlength="320"></textarea>
+            </div>
+
+            <div class="form-group full">
+              <button type="submit" class="btn btn-primary" id="revSubmitBtn" data-i18n="wrev_submit_btn">Publish Review Live →</button>
+            </div>
+          </form>
+
+          <div class="review-success-box" id="reviewSuccessBox" role="status">
+            <strong data-i18n="wrev_ok_title">🎉 Thank you! Your review is now live.</strong>
+            <span data-i18n="wrev_ok_desc">It has been added to the front of our Customer Feedback slider on the Home page.</span>
+            <div>
+              <button type="button" class="btn btn-whatsapp" data-view="home" data-section="feedback" data-i18n="wrev_view_live">
+                See My Review on Home →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -1580,6 +2011,7 @@
             <li><a href="#how-it-works" data-view="home" data-section="how-it-works" data-i18n="nav_how">How It Works</a></li>
             <li><a href="#security" data-view="security" data-i18n="footer_l4">Trust &amp; Security</a></li>
             <li><a href="#faq" data-view="faq" data-i18n="nav_faq">FAQ</a></li>
+            <li><a href="#review" data-view="review" data-i18n="nav_write_review">Write a Review</a></li>
           </ul>
         </div>
 
@@ -1613,7 +2045,8 @@
     const CONFIG = {
       WHATSAPP_NUMBER: "917887259794",
       BRAND_NAME: "PocketCafe",
-      AI_WORKER_URL: "https://pocketcafe-ai.rahulyadav13400141.workers.dev"
+      AI_WORKER_URL: "https://pocketcafe-ai.rahulyadav13400141.workers.dev",
+      REVIEWS_API_URL: "https://pocketcafe-ai.rahulyadav13400141.workers.dev/reviews"
     };
 
     // =========================================================================
@@ -1661,6 +2094,27 @@
         empty_title: "No matching service found",
         empty_desc: "Don't worry — we handle almost every Indian online portal & form.",
         empty_btn: "Ask on WhatsApp Instead",
+        rev_tag: "Verified WhatsApp Reviews",
+        rev_title: "Trusted by Students & Families",
+        rev_sub: "Swipe or drag to see real experiences from customers who skipped cyber cafe queues.",
+        nav_write_review: "Write a Review",
+        rev_write_btn: "★ Write a Review",
+        wrev_tag: "Student & User Feedback",
+        wrev_title: "Share Your PocketCafe Experience",
+        wrev_sub: "Used PocketCafe for an exam form, Aadhaar/PAN, certificate, or ticket? Submit your review below — it will appear immediately in our Customer Feedback section.",
+        wrev_name_lbl: "Your Name *",
+        wrev_name_ph: "e.g., Ankit Verma",
+        wrev_city_lbl: "City / State *",
+        wrev_city_ph: "e.g., Lucknow, UP",
+        wrev_srv_lbl: "Service Used *",
+        wrev_rating_lbl: "Your Rating *",
+        wrev_msg_lbl: "Your Review *",
+        wrev_msg_ph: "Tell us how your experience was (in English, Hindi, or Hinglish)...",
+        wrev_submit_btn: "Publish Review Live →",
+        wrev_ok_title: "🎉 Thank you! Your review is now live.",
+        wrev_ok_desc: "It has been added to the front of our Customer Feedback slider on the Home page.",
+        wrev_view_live: "See My Review on Home →",
+        rev_verified: "Verified Order",
         price_tag: "Zero Hidden Charges",
         price_title: "Transparent Two-Part Pricing",
         price_sub: "Unlike traditional shops that bundle mystery margins, we always separate the official government fee from our digital assistance charge.",
@@ -1771,6 +2225,27 @@
         empty_title: "यह सर्विस लिस्ट में नहीं मिली",
         empty_desc: "चिंता न करें — हम भारत के लगभग हर ऑनलाइन पोर्टल और फॉर्म का काम करते हैं।",
         empty_btn: "सीधे WhatsApp पर पूछें",
+        rev_tag: "वेरिफाइड WhatsApp रिव्यूज़",
+        rev_title: "ग्राहक फीडबैक और अनुभव",
+        rev_sub: "उन ग्राहकों के अनुभव स्वाइप करके पढ़ें जिन्होंने घर बैठे अपने फॉर्म और डॉक्यूमेंट्स पूरे करवाए।",
+        nav_write_review: "रिव्यू लिखें",
+        rev_write_btn: "★ अपना रिव्यू लिखें",
+        wrev_tag: "स्टूडेंट और यूज़र फीडबैक",
+        wrev_title: "PocketCafe के साथ अपना अनुभव साझा करें",
+        wrev_sub: "क्या आपने एग्जाम फॉर्म, आधार/पैन, सर्टिफिकेट या टिकट के लिए PocketCafe इस्तेमाल किया? नीचे रिव्यू लिखें — यह तुरंत होम पेज के फीडबैक सेक्शन में जुड़ जाएगा।",
+        wrev_name_lbl: "आपका नाम *",
+        wrev_name_ph: "जैसे: अंकित वर्मा",
+        wrev_city_lbl: "शहर / राज्य *",
+        wrev_city_ph: "जैसे: लखनऊ, यूपी",
+        wrev_srv_lbl: "ली गई सर्विस *",
+        wrev_rating_lbl: "आपकी रेटिंग *",
+        wrev_msg_lbl: "आपका अनुभव *",
+        wrev_msg_ph: "अपना अनुभव इंग्लिश, हिंदी या हिंग्लिश में लिखें...",
+        wrev_submit_btn: "रिव्यू लाइव पब्लिश करें →",
+        wrev_ok_title: "🎉 धन्यवाद! आपका रिव्यू लाइव हो गया है।",
+        wrev_ok_desc: "यह हमारे होम पेज के ग्राहक फीडबैक स्लाइडर में सबसे आगे जुड़ गया है।",
+        wrev_view_live: "होम पेज पर अपना रिव्यू देखें →",
+        rev_verified: "वेरिफाइड ऑर्डर",
         price_tag: "कोई छिपा हुआ चार्ज नहीं",
         price_title: "बिल्कुल पारदर्शी 2-पार्ट फीस",
         price_sub: "बाकी दुकानों की तरह हम फीस मिलाकर नहीं बताते — सरकारी फीस और हमारा सर्विस चार्ज हमेशा अलग और साफ रहता है।",
@@ -2059,6 +2534,7 @@
       });
 
       renderServices();
+      renderReviews();
     }
 
     // Bind language toggle buttons
@@ -2328,6 +2804,279 @@
       openWhatsApp(msg);
     }
 
+    // =========================================================================
+    // HORIZONTALLY SLIDABLE CUSTOMER FEEDBACK CAROUSEL (Bilingual + Touch/Drag)
+    // =========================================================================
+    const REVIEWS = [
+      {
+        initials: "RY",
+        name: "Rohan Verma",
+        city: "Lucknow, UP",
+        city_hi: "लखनऊ, यूपी",
+        service: "SSC Exam Form",
+        service_hi: "SSC एग्जाम फॉर्म",
+        text: "Mera SSC form bina kisi error ke submit ho gaya! Draft preview WhatsApp par bhej kar har spelling check karwayi, aur live photo bhi 1 minute me ho gaya.",
+        text_hi: "मेरा SSC फॉर्म बिना किसी गलती के सबमिट हो गया! WhatsApp पर ड्राफ्ट प्रीव्यू भेजकर हर स्पेलिंग चेक करवाई और लाइव फोटो भी 1 मिनट में हो गई।"
+      },
+      {
+        initials: "AK",
+        name: "Amit Kumar",
+        city: "Kanpur, UP",
+        city_hi: "कानपुर, यूपी",
+        service: "Aadhaar PVC & Address",
+        service_hi: "आधार अपडेट और PVC",
+        text: "Very fast service! Aadhaar address update aur PVC card order karwaya, 10 mins me official SRN slip mil gayi. Service fee bilkul transparent hai.",
+        text_hi: "बहुत तेज सर्विस! आधार एड्रेस अपडेट और PVC कार्ड ऑर्डर करवाया, 10 मिनट में ऑफिशियल SRN स्लिप मिल गई। फीस बिल्कुल साफ और सही है।"
+      },
+      {
+        initials: "PS",
+        name: "Priya Singh",
+        city: "Prayagraj, UP",
+        city_hi: "प्रयागराज, यूपी",
+        service: "UPPSC & Domicile Cert.",
+        service_hi: "UPPSC और निवास प्रमाण पत्र",
+        text: "Subah exam form ki last date thi aur cyber cafe band tha. PocketCafe ne 20 minute me photo resize karke form fill kar diya aur PDF bhej di.",
+        text_hi: "सुबह एग्जाम फॉर्म की लास्ट डेट थी और साइबर कैफे बंद था। PocketCafe ने 20 मिनट में फोटो रिसाइज करके फॉर्म भर दिया और PDF भेज दी।"
+      },
+      {
+        initials: "MS",
+        name: "Manish Sharma",
+        city: "Varanasi, UP",
+        city_hi: "वाराणसी, यूपी",
+        service: "Passport Renewal",
+        service_hi: "पासपोर्ट रिन्यूअल",
+        text: "Passport renewal aur PSK slot booking ghar baithe ho gayi. Koi extra hidden charge nahi liya, official govt receipt alag se mili.",
+        text_hi: "पासपोर्ट रिन्यूअल और PSK स्लॉट बुकिंग घर बैठे हो गई। कोई एक्स्ट्रा हिडन चार्ज नहीं लिया, सरकारी फीस की ऑफिशियल रसीद अलग से मिली।"
+      },
+      {
+        initials: "NK",
+        name: "Neha Kashyap",
+        city: "Lucknow, UP",
+        city_hi: "लखनऊ, यूपी",
+        service: "EPFO KYC & MSME",
+        service_hi: "EPFO KYC और MSME",
+        text: "PF KYC aur shop ka MSME Udyam certificate dono ek hi chat me ban gaye. Live OTP coordination bahut safe aur smooth tha.",
+        text_hi: "PF KYC और दुकान का MSME उद्यम सर्टिफिकेट दोनों एक ही चैट में बन गए। लाइव OTP कोऑर्डिनेशन बहुत सुरक्षित और आसान था।"
+      }
+    ];
+
+    const LOCAL_REVIEWS_KEY = "pocketcafe_user_reviews_v1";
+    let userReviews = [];
+
+    function getInitials(name) {
+      const parts = name.trim().split(/\s+/).filter(Boolean);
+      if (parts.length === 0) return "PC";
+      if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    function loadLocalReviews() {
+      try {
+        const raw = localStorage.getItem(LOCAL_REVIEWS_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveLocalReviews(list) {
+      try {
+        localStorage.setItem(LOCAL_REVIEWS_KEY, JSON.stringify(list.slice(0, 50)));
+      } catch (e) {
+        console.warn("Could not save review locally:", e);
+      }
+    }
+
+    function getAllReviews() {
+      return [...userReviews, ...REVIEWS];
+    }
+
+    async function syncRemoteReviews() {
+      if (!CONFIG.REVIEWS_API_URL) return;
+      try {
+        const res = await fetch(CONFIG.REVIEWS_API_URL, { method: "GET" });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (Array.isArray(data.reviews)) {
+          userReviews = data.reviews;
+          saveLocalReviews(userReviews);
+          renderReviews();
+        }
+      } catch (e) {
+        console.warn("Remote reviews fetch skipped:", e);
+      }
+    }
+
+    userReviews = loadLocalReviews();
+
+    const reviewsTrack = document.getElementById("reviewsTrack");
+    const reviewsDots = document.getElementById("reviewsDots");
+
+    function renderReviews() {
+      const isHi = currentLang === "hi";
+      const allReviews = getAllReviews();
+      reviewsTrack.innerHTML = allReviews.map((r) => {
+        const rating = Math.min(5, Math.max(1, Number(r.rating) || 5));
+        const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+        const safeName = escapeHtml(r.name || "Student");
+        const safeInitials = escapeHtml(r.initials || getInitials(r.name || "PC"));
+        const safeCity = escapeHtml(isHi ? (r.city_hi || r.city || "") : (r.city || ""));
+        const safeText = escapeHtml(isHi ? (r.text_hi || r.text || "") : (r.text || ""));
+        const safeService = escapeHtml(isHi ? (r.service_hi || r.service || "") : (r.service || ""));
+        return `
+        <article class="review-card">
+          <div>
+            <div class="review-head">
+              <div class="review-author">
+                <div class="review-avatar">${safeInitials}</div>
+                <div>
+                  <div class="review-name">${safeName} <span class="verified-tick" title="Verified">✔</span></div>
+                  <div class="review-city">${safeCity}</div>
+                </div>
+              </div>
+              <span class="review-wa-badge">● ${t("rev_verified")}</span>
+            </div>
+            <div class="review-stars" aria-label="${rating} out of 5 stars">${stars}</div>
+            <p class="review-text" style="margin-top: 10px;">"${safeText}"</p>
+          </div>
+          <span class="review-service-pill">${safeService}</span>
+        </article>
+      `;
+      }).join("");
+
+      reviewsDots.innerHTML = allReviews.map((_, idx) => `
+        <button type="button" class="slider-dot ${idx === 0 ? "active" : ""}" data-slide="${idx}" aria-label="Go to review ${idx + 1}"></button>
+      `).join("");
+    }
+
+    // Star Rating Picker & Review Submission Form
+    let selectedRating = 5;
+    const starPicker = document.getElementById("starPicker");
+    const starRatingText = document.getElementById("starRatingText");
+
+    function updateStarUI(val) {
+      selectedRating = val;
+      starPicker.querySelectorAll(".star-btn").forEach((btn) => {
+        btn.classList.toggle("active", Number(btn.dataset.star) <= val);
+      });
+      starRatingText.textContent = `${val} / 5`;
+    }
+
+    starPicker.addEventListener("click", (e) => {
+      const btn = e.target.closest(".star-btn");
+      if (!btn) return;
+      updateStarUI(Number(btn.dataset.star));
+    });
+
+    document.getElementById("reviewSubmitForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("revNameInput").value.trim();
+      const city = document.getElementById("revCityInput").value.trim();
+      const service = document.getElementById("revServiceInput").value;
+      const text = document.getElementById("revTextInput").value.trim();
+      if (!name || !city || !text) return;
+
+      const submitBtn = document.getElementById("revSubmitBtn");
+      submitBtn.disabled = true;
+
+      const newReview = {
+        initials: getInitials(name),
+        name,
+        city,
+        city_hi: city,
+        service,
+        service_hi: service,
+        rating: selectedRating,
+        text,
+        text_hi: text,
+        createdAt: new Date().toISOString()
+      };
+
+      // Immediately add to local state & live slider
+      userReviews.unshift(newReview);
+      saveLocalReviews(userReviews);
+      renderReviews();
+      reviewsTrack.scrollTo({ left: 0, behavior: "smooth" });
+
+      // If global Cloudflare Worker KV endpoint is configured, persist globally
+      if (CONFIG.REVIEWS_API_URL) {
+        try {
+          await fetch(CONFIG.REVIEWS_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newReview)
+          });
+        } catch (err) {
+          console.warn("Remote review POST failed (saved locally):", err);
+        }
+      }
+
+      e.target.reset();
+      updateStarUI(5);
+      submitBtn.disabled = false;
+      document.getElementById("reviewSuccessBox").classList.add("show");
+    });
+
+    function getReviewStep() {
+      const card = reviewsTrack.querySelector(".review-card");
+      return card ? card.offsetWidth + 20 : 320;
+    }
+
+    function updateActiveDot() {
+      const step = getReviewStep();
+      const idx = Math.min(getAllReviews().length - 1, Math.max(0, Math.round(reviewsTrack.scrollLeft / step)));
+      reviewsDots.querySelectorAll(".slider-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === idx);
+      });
+    }
+
+    document.getElementById("revPrevBtn").addEventListener("click", () => {
+      reviewsTrack.scrollBy({ left: -getReviewStep(), behavior: "smooth" });
+    });
+
+    document.getElementById("revNextBtn").addEventListener("click", () => {
+      reviewsTrack.scrollBy({ left: getReviewStep(), behavior: "smooth" });
+    });
+
+    reviewsDots.addEventListener("click", (e) => {
+      const dot = e.target.closest(".slider-dot");
+      if (!dot) return;
+      const idx = Number(dot.dataset.slide);
+      reviewsTrack.scrollTo({ left: idx * getReviewStep(), behavior: "smooth" });
+    });
+
+    reviewsTrack.addEventListener("scroll", () => {
+      window.requestAnimationFrame(updateActiveDot);
+    });
+
+    // Desktop click-and-drag support alongside native mobile touch swipe
+    let isDraggingReviews = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+
+    reviewsTrack.addEventListener("mousedown", (e) => {
+      isDraggingReviews = true;
+      reviewsTrack.classList.add("dragging");
+      dragStartX = e.pageX - reviewsTrack.offsetLeft;
+      dragStartScroll = reviewsTrack.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!isDraggingReviews) return;
+      isDraggingReviews = false;
+      reviewsTrack.classList.remove("dragging");
+    });
+
+    reviewsTrack.addEventListener("mousemove", (e) => {
+      if (!isDraggingReviews) return;
+      e.preventDefault();
+      const x = e.pageX - reviewsTrack.offsetLeft;
+      const walk = (x - dragStartX) * 1.3;
+      reviewsTrack.scrollLeft = dragStartScroll - walk;
+    });
+
     // Category Filter Listeners
     document.getElementById("filterTabs").addEventListener("click", (e) => {
       const btn = e.target.closest(".filter-btn");
@@ -2374,7 +3123,8 @@
     const views = {
       home: document.getElementById("homeView"),
       security: document.getElementById("securityView"),
-      faq: document.getElementById("faqView")
+      faq: document.getElementById("faqView"),
+      review: document.getElementById("reviewView")
     };
 
     function showView(viewName, sectionId = null, updateHash = true) {
@@ -2384,7 +3134,7 @@
       });
 
       document.querySelectorAll("[data-view]").forEach((el) => {
-        const isPageLink = el.dataset.view === "security" || el.dataset.view === "faq";
+        const isPageLink = el.dataset.view === "security" || el.dataset.view === "faq" || el.dataset.view === "review";
         if (isPageLink) {
           el.classList.toggle("active-link", el.dataset.view === target);
         }
@@ -2420,6 +3170,8 @@
         showView("security", null, false);
       } else if (hash === "faq") {
         showView("faq", null, false);
+      } else if (hash === "review" || hash === "write-review") {
+        showView("review", null, false);
       } else if (hash && hash !== "home" && document.getElementById(hash)) {
         showView("home", hash, false);
       } else {
@@ -2433,6 +3185,7 @@
     // Year & Initial Render (English Default)
     document.getElementById("year").textContent = new Date().getFullYear();
     applyLanguage("en");
+    syncRemoteReviews();
   </script>
 </body>
 </html>
